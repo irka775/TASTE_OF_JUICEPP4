@@ -1,6 +1,8 @@
 {% load static %}
 {% url 'index' as index_url %}
-
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,46 +74,44 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <!-- Logo -->
-          <a class="navbar-brand" href="{% url 'index' %}">
-            <h1 class="brand">
-              Taste of Ju<img
-                src="{% static 'images/glass_of_juice.ico' %}"
-                alt="Juice Icon"
-              />ce
-            </h1>
-          </a>
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <h1 class="brand">Taste of Ju<img src="{% static 'images/glass_of_juice.ico' %}" alt="Juice Icon">ce</h1>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" 
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarText"
-            aria-controls="navbarText"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- Navigation Menu -->
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link {% if request.path == index_url %}active{% endif %}"
-                  aria-current="page"
-                  href="{% url 'index' %}"
-                  >Home</a
-                >
-              </li>
-    
-            </ul>
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == index_url %}active{% endif %}" 
+                          aria-current="page" href="{% url 'index' %}">Home</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                          aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                          aria-current="page" href="{% url 'account_signup' %}">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == login_url %}active{% endif %}"
+                          aria-current="page" href="{% url 'account_login' %}">Login</a>
+                  </li>
+                  {% endif %}  
+              </ul>                 
           </div>
+          
         </div>
-      </nav>
+    </nav>
     </header>
-    >
     <main>
       {% block content %}
       {% endblock content %}
