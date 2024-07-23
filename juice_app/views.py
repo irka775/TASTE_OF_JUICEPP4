@@ -1,4 +1,7 @@
 from django.views.generic import TemplateView
 
-class Index(TemplateView):
-    template_name = 'juice_app/index.html'
+class IndexView(TemplateView):
+    """
+    View to display home page.
+    """
+    template_name = "juice_app/index.html"
