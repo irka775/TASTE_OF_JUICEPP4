@@ -7,12 +7,13 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <h1 class="post-title">{{ post.title }}</h1>
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <h1 class="recipe-title">{{ recipe.title }}</h1>
+                <p class="recipe-subtitle">{{ recipe.author }} | {{ Recipe.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{{ post.featured_image.url }}" class="scale" alt="placeholder">
+            <div class="d-md-block col-md-6 masthead-image">
+                <img src="{{ recipe.featured_image.url }}" class="scale img-fluid" alt="placeholder">
             </div>
+            
         </div>
     </div>
 </div>
@@ -21,7 +22,7 @@
     <div class="row">
         <div class="col card mb-4 mt-3 left top">
             <div class="card-body">
-                <p class="card-text">{{ post.content | safe }}</p>
+                <p class="card-text">{{ recipe.content | safe }}</p>
             </div>
         </div>
     </div>
@@ -63,7 +64,7 @@
             <div class="card-body">
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <p>Recipeing as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
