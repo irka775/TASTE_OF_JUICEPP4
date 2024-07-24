@@ -19,9 +19,11 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DEBUG=None
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 if os.path.isfile("env.py"):
     import env
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -30,11 +32,11 @@ if os.path.isfile("env.py"):
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEVELOPMENT") == "True"
+DEBUG = os.path.exists(os.path.join(BASE_DIR, 'env.py'))
 
 ALLOWED_HOSTS = (
     ["*"]
-    if DEBUG
+    if DEBUG==True
     else [
         ".herokuapp.com",
     ]
