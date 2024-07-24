@@ -29,13 +29,15 @@ if os.path.isfile(os.path.join(BASE_DIR, "env.py")):
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = "DEVELOPMENT" in os.environ
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.path.exists(os.path.join(BASE_DIR, 'env.py'))
 
-ALLOWED_HOSTS = ["*",] if DEBUG else [".herokuapp.com",]
-
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    ".herokuapp.com",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -156,8 +158,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
