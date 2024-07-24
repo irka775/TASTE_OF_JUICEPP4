@@ -30,12 +30,15 @@ if os.path.isfile("env.py"):
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "DEVELOPMENT" in os.environ
+DEBUG = os.environ.get("DEVELOPMENT") == "True"
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    ".herokuapp.com",
-]
+ALLOWED_HOSTS = (
+    ["*"]
+    if DEBUG
+    else [
+        ".herokuapp.com",
+    ]
+)
 
 
 # Application definition
@@ -111,7 +114,7 @@ WSGI_APPLICATION = "juice_project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-CSRF_TRUSTED_ORIGINS = ["https://*.codeanyapp.com","https://*.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.codeanyapp.com", "https://*.herokuapp.com"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -154,7 +157,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # Default primary key field type
