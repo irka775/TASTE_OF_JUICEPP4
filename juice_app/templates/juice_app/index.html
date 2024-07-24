@@ -4,26 +4,20 @@
 {% block content %}
 <div class="image-background">
     <div class="container h-100 justify-content-center">
-        <div class="row h-100 ">
+        <div class="row h-100">
             <div class="col-12 text-center">
                 <div class="with-shadow">
                     <h1 class="display-1">Welcome to our website!</h1>
-                    <p class="lead">Here we share the best juice recipes for you to try and enjoy!!</p>  
-                    <p class="lead">  Our mission is to provide a
-                        wide variety of delicious and healthy juice recipes that you can easily make at home.</p>
-                      <p class="lead">Our team is passionate about juicing and we love experimenting with different ingredients to create unique and
-                        tasty combinations. We hope you find our recipes inspiring and we encourage you to share your own juice creations
-                        with us!
-                        <p class="lead">Thank you for visiting our site, and happy juicing!
-                        {% if not user.is_authenticated %} <br> Join us now.
-                    </p>
-                    </p>
-                    <a href="#" class="btn btn-dark mb-2"> Signup Now</a>
+                    <p class="lead">Here we share the best juice recipes for you to try and enjoy!!</p>
+                    <p class="lead">Our mission is to provide a wide variety of delicious and healthy juice recipes that you can easily make at home.</p>
+                    <p class="lead">Our team is passionate about juicing and we love experimenting with different ingredients to create unique and tasty combinations. We hope you find our recipes inspiring and we encourage you to share your own juice creations with us!</p>
+                    <p class="lead">Thank you for visiting our site, and happy juicing!
+                    {% if not user.is_authenticated %}<br>Join us now.</p>
+                    <a href="#" class="btn btn-dark mb-2">Signup Now</a>
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock content %}
