@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.path.exists(os.path.join(BASE_DIR, 'env.py'))
 
-ALLOWED_HOSTS = ["*"] if DEBUG else [".herokuapp.com"]
+ALLOWED_HOSTS = ["*",] if DEBUG else [".herokuapp.com",]
 
 # Application definition
 
