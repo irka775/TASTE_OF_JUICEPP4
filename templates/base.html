@@ -108,6 +108,10 @@
                   >Home</a
                 >
               </li>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              {% if user.is_authenticated %}
+                  <li><a href="{% url 'create_recipe' %}">Create Recipe</a></li>
+              {% endif %}
               {% if user.is_authenticated %}
               <li class="nav-item">
                 <a
@@ -155,7 +159,9 @@
     </div>
 
     </header>
-    <main>{% block content %} {% endblock content %}</main>
+    <main>{% block content %}
+      
+      {% endblock content %}</main>
 
     <footer class="social">
       <p>Created by Irina</p>
