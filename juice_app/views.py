@@ -1,56 +1,88 @@
-from django.views.generic import TemplateView
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, reverse
+from django.views import generic
 from django.contrib import messages
-from .models import Recipe
-from .forms import RecipeForm
-from django.views import View
+from django.http import HttpResponseRedirect
+from .models import Post, Comment
+from .forms import CommentForm
 
-class IndexView(TemplateView):
-    """
-    View to display home page.
-    """
+
+class HomePage(generic.ListView):
+    queryset = Post.objects.filter(status=1)
     template_name = "juice_app/index.html"
 
-@login_required
-def create_recipe(request):
-    if request.method == 'POST':
-        form = RecipeForm(request.POST)
-        if form.is_valid():
-            recipe = form.save(commit=False)
-            recipe.user = request.user
-            recipe.save()
-            messages.success(request, 'Recipe created successfully!')
-            return redirect('recipe_list')  # Assume you have a recipe list view
-    else:
-        form = RecipeForm()
-    return render(request, 'juice_app/create_recipe.html', {'form': form})
 
-@login_required
-def edit_recipe(request, recipe_id):
-    recipe = get_object_or_404(Recipe, id=recipe_id, user=request.user)
-    if request.method == 'POST':
-        form = RecipeForm(request.POST, instance=recipe)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Recipe updated successfully!')
-            return redirect('recipe_list')  # Assume you have a recipe list view
-    else:
-        form = RecipeForm(instance=recipe)
-    return render(request, 'edit_recipe.html', {'form': form})
-
-
-class RecipeListView(View):
-    def get(self, request):
-        recipes = Recipe.objects.all()
-        return render(request, 'juice_app/recipe_list.html', {'recipes': recipes})
-
-# Or use a function-based view
-def recipe_list(request):
-    recipes = Recipe.objects.all()
-    return render(request, 'juice_app/recipe_list.html', {'recipes': recipes})
-
-
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1)
+    template_name = "juice_app/recipe_list.html"
+    paginate_by = 6
 def recipe_detail(request, slug):
-    recipe = get_object_or_404(Recipe, slug=slug)
-    return render(request, 'juice_app/recipe_detail.html', {'recipe': recipe})
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
+  
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.approved = True
+            comment.save()
+            print(comment)
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval')
+
+    comment_form = CommentForm()
+
+    return render(
+        request,
+        "juice_app/recipe_detail.html",
+        context={
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
+
+        },
+    )
+
+def comment_edit(request, slug, comment_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.approved = True
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+

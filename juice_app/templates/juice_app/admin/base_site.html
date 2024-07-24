@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'index' %}">Return to MyApp Site</a></h1>
+{% endblock %}
+
+
+{% block nav-global %}
+<h2>Nav Global Block</h2>
+
+    {{ block.super }}
+  
+{% endblock %}
+
+
+{% block nav-sidebar %}
+    {{ block.super }}
+    <h2>Nav Sidebar Block</h2>
+
+{% endblock %}
+
+
+
+{% block footer %}
+    {{ block.super }}
+    <h2>Footer Block</h2>
+   
+{% endblock %}

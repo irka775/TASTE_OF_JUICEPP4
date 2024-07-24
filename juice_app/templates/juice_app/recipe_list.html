@@ -4,31 +4,34 @@
 
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for recipe in recipes %}
+                {% for post in post_list %}
+                {% load cloudinary %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in recipe.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                {% if "placeholder" in post.featured_image.url %}
+
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                    alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ recipe.user }}</p>
+                                    <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'recipe_detail' recipe.slug %}" class="recipe-link">
-                                <h2 class="card-title">{{ recipe.title }}</h2>
-                                <p class="card-text">{{ recipe.instructions|truncatewords:20 }}</p>
+                            <a href="{% url 'recipe_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.excerpt }}</p>
                             </a>
+
                             <hr />
-                            <p class="card-text text-muted h6">{{ recipe.created_on }}</p>
-                            {% if recipe.user == user %}
-                            <a href="{% url 'edit_recipe' recipe.id %}" class="btn btn-primary">Edit</a>
-                            {% endif %}
+                            <p class="card-text text-muted h6">{{ post.created_on}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -37,6 +40,7 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
+
             </div>
         </div>
     </div>
@@ -55,3 +59,4 @@
 </div>
 
 {% endblock %}
+{% block copyright %}Copyright 2024 Irina{% endblock %}

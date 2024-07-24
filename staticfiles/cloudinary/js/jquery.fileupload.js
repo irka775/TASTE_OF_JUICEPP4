@@ -32,11 +32,7 @@
     }
 }(function ($) {
     'use strict';
-
-    // Detect file input support, based on
-    // http://viljamis.com/blog/2012/file-upload-support-on-mobile/
     $.support.fileInput = !(new RegExp(
-        // Handle devices which give false positives for the feature detection:
         '(Android (1\\.[0156]|2\\.[01]))' +
             '|(Windows Phone (OS 7|8\\.0))|(XBLWP)|(ZuneWP)|(WPDesktop)' +
             '|(w(eb)?OSBrowser)|(webOS)' +
@@ -45,15 +41,9 @@
         // Feature detection for all other devices:
         $('<input type="file"/>').prop('disabled'));
 
-    // The FileReader API is not actually used, but works as feature detection,
-    // as some Safari versions (5?) support XHR file uploads via the FormData API,
-    // but not non-multipart XHR file uploads.
-    // window.XMLHttpRequestUpload is not available on IE10, so we check for
-    // window.ProgressEvent instead to detect XHR2 file upload capability:
     $.support.xhrFileUpload = !!(window.ProgressEvent && window.FileReader);
     $.support.xhrFormDataFileUpload = !!window.FormData;
 
-    // Detect support for Blob slicing (required for chunked uploads):
     $.support.blobSlice = window.Blob && (Blob.prototype.slice ||
         Blob.prototype.webkitSlice || Blob.prototype.mozSlice);
 

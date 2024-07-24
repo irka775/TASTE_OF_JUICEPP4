@@ -1,7 +1,9 @@
+from .models import Comment
 from django import forms
-from .models import Recipe
 
-class RecipeForm(forms.ModelForm):
+
+class CommentForm(forms.ModelForm):
     class Meta:
-        model = Recipe
-        fields = ['title', 'ingredients', 'instructions']
+        model = Comment
+        fields = ('body',)
+        
