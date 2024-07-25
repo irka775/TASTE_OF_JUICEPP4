@@ -1,0 +1,87 @@
+[
+    {
+        "model": "juice_app.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Classic Orange Juice",
+            "slug": "classic-orange-juice",
+            "author": 1,
+            "featured_image": "placeholder",
+            "description": "A refreshing and classic orange juice made from fresh oranges.",
+            "status": 1,
+            "ingredients": "4 large oranges, 1 tbsp honey (optional)",
+            "instructions": "1. Cut the oranges in half.\n2. Squeeze the juice using a juicer.\n3. Strain the juice to remove pulp if desired.\n4. Add honey if you prefer a sweeter taste.\n5. Serve chilled.",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "updated_on": "2023-09-13T09:43:19.754Z",
+            "category": 3
+        }
+    },
+    {
+        "model": "juice_app.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Green Detox Juice",
+            "slug": "green-detox-juice",
+            "author": 1,
+            "featured_image": "placeholder",
+            "description": "A nutrient-packed green detox juice with kale, spinach, and cucumber.",
+            "status": 1,
+            "ingredients": "1 cucumber, 2 cups kale, 1 cup spinach, 1 lemon, 1 apple, 1 inch ginger",
+            "instructions": "1. Wash all ingredients thoroughly.\n2. Chop the cucumber, apple, and ginger into smaller pieces.\n3. Add all ingredients to a juicer.\n4. Juice until smooth.\n5. Serve immediately.",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "updated_on": "2023-09-13T09:43:19.754Z",
+            "category": 7
+        }
+    },
+    {
+        "model": "juice_app.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Berry Blast Smoothie",
+            "slug": "berry-blast-smoothie",
+            "author": 1,
+            "featured_image": "placeholder",
+            "description": "A delicious and antioxidant-rich berry smoothie.",
+            "status": 1,
+            "ingredients": "1 cup strawberries, 1 cup blueberries, 1 cup raspberries, 1 banana, 1 cup almond milk",
+            "instructions": "1. Wash all berries thoroughly.\n2. Peel the banana.\n3. Add all ingredients to a blender.\n4. Blend until smooth.\n5. Serve chilled.",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "updated_on": "2023-09-13T09:43:19.754Z",
+            "category": 4
+        }
+    },
+    {
+        "model": "juice_app.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Tropical Mango Juice",
+            "slug": "tropical-mango-juice",
+            "author": 1,
+            "featured_image": "placeholder",
+            "description": "An exotic and sweet mango juice.",
+            "status": 1,
+            "ingredients": "2 ripe mangoes, 1 cup coconut water, 1 tbsp lime juice",
+            "instructions": "1. Peel and chop the mangoes.\n2. Add mangoes and coconut water to a blender.\n3. Blend until smooth.\n4. Stir in lime juice.\n5. Serve chilled.",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "updated_on": "2023-09-13T09:43:19.754Z",
+            "category": 10
+        }
+    },
+    {
+        "model": "juice_app.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Refreshing Lemonade",
+            "slug": "refreshing-lemonade",
+            "author": 1,
+            "featured_image": "placeholder",
+            "description": "A classic and refreshing lemonade.",
+            "status": 1,
+            "ingredients": "6 lemons, 1 cup sugar, 6 cups water",
+            "instructions": "1. Squeeze the lemons to extract the juice.\n2. In a pitcher, combine lemon juice, sugar, and water.\n3. Stir until the sugar is dissolved.\n4. Serve over ice.",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "updated_on": "2023-09-13T09:43:19.754Z",
+            "category": 15
+        }
+    }
+]

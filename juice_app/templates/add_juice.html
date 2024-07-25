@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container card mb-4">
+    <h2>Add New Juice Recipe</h2>
+    <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            {{ form.featured_image.label_tag }}
+            {{ form.featured_image }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            {{ form.status.label_tag }}
+            {{ form.status }}
+        </div>
+        <div class="form-group">
+            {{ form.ingredients.label_tag }}
+            {{ form.ingredients }}
+        </div>
+        <div class="form-group">
+            {{ form.instructions.label_tag }}
+            {{ form.instructions }}
+        </div>
+        <div class="form-group">
+            {{ form.category.label_tag }}
+            {{ form.category }}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add Juice</button>
+
+        <br>
+        <br>
+
+
+    </form>
+</div>
+{% endblock %}

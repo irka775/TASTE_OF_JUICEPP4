@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "django_summernote",
     "cloudinary",
+    "django_resized",
     "juice_app",
     "about",
 ]
@@ -112,15 +113,11 @@ WSGI_APPLICATION = "juice_project.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(
         default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,  # 10 minutes
+        conn_max_age=60,  
         ssl_require=True,
     )
 }
 
-DATABASES["default"]["OPTIONS"] = {
-    "MAX_CONNS": 20,
-    "sslmode": "require",
-}
 
 # Cloudinary settings
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
