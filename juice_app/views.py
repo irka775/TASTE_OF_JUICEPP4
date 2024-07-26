@@ -1,19 +1,15 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Recipe, Comment, Category
-from .forms import CommentForm
-from django.shortcuts import render, redirect
+from .forms import CommentForm, RecipeForm
 from django.contrib.auth.decorators import login_required
-from .forms import RecipeForm
 from django.core.paginator import Paginator
-
 
 class HomePage(generic.ListView):
     queryset = Recipe.objects.filter(status=1)
     template_name = "juice_app/index.html"
-
 
 @login_required
 def add_juice(request):
@@ -23,33 +19,56 @@ def add_juice(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
-            return redirect(
-                "recipe_list"
-            )  
+            return redirect("recipe_list")
     else:
         form = RecipeForm()
-    return render(request, "add_juice.html", {"form": form})
+    return render(request, "juice_app/add_juice.html", {"form": form})
 
 def recipe_list(request):
     category_id = request.GET.get("category", None)
     if category_id:
-        recipes = Recipe.objects.filter(category_id=category_id)
+        recipes = Recipe.objects.filter(category_id=category_id).order_by('id')
     else:
-        recipes = Recipe.objects.all()
-    paginator = Paginator(recipes, 6)  # Paginează cu 6 rețete pe pagină
+        recipes = Recipe.objects.all().order_by('id')
+
+    paginator = Paginator(recipes, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     categories = Category.objects.all()
+
     return render(
         request,
         "juice_app/recipe_list.html",
-        {"page_obj": page_obj,"recipe_list": recipes, "categories": categories},
+        {"page_obj": page_obj, "recipe_list": recipes, "categories": categories},
     )
 
+@login_required
+def recipe_edit(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
 
+    if request.method == "POST":
+        recipe_form = RecipeForm(data=request.POST, files=request.FILES, instance=recipe)
+        if recipe_form.is_valid() and recipe.author == request.user:
+            recipe_form.save()
+            messages.add_message(request, messages.SUCCESS, "Recipe Updated!")
+            return redirect("recipe_list")
+        else:
+            messages.add_message(request, messages.ERROR, "Error updating recipe!")
+    else:
+        recipe_form = RecipeForm(instance=recipe)
 
+    return render(request, "juice_app/edit_recipe.html", {"recipe_form": recipe_form})
 
-
+@login_required
+def recipe_delete(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    if recipe.author == request.user:
+        recipe.delete()
+        messages.add_message(request, messages.SUCCESS, "Recipe deleted!")
+    else:
+        messages.add_message(request, messages.ERROR, "You can only delete your own Recipes!")
+    
+    return redirect("recipe_list")
 
 def recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)
@@ -65,11 +84,8 @@ def recipe_detail(request, slug):
             comment.recipe = recipe
             comment.approved = True
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Comment submitted and awaiting approval"
-            )
+            messages.add_message(request, messages.SUCCESS, "Comment submitted and awaiting approval")
             return HttpResponseRedirect(reverse("recipe_detail", args=[slug]))
-
     else:
         comment_form = CommentForm()
 
@@ -84,39 +100,33 @@ def recipe_detail(request, slug):
         },
     )
 
-
+@login_required
 def comment_edit(request, slug, comment_id):
+    recipe = get_object_or_404(Recipe, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
     if request.method == "POST":
-        queryset = Recipe.objects.filter(status=1)
-        recipe = get_object_or_404(queryset, slug=slug)
-
-        comment = get_object_or_404(Comment, pk=comment_id)
-
         comment_form = CommentForm(data=request.POST, instance=comment)
-
         if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.recipe = recipe
-            comment.approved = True
-            comment.save()
+            comment_form.save()
             messages.add_message(request, messages.SUCCESS, "Comment Updated!")
+            return HttpResponseRedirect(reverse("recipe_detail", args=[slug]))
         else:
             messages.add_message(request, messages.ERROR, "Error updating comment!")
+    else:
+        comment_form = CommentForm(instance=comment)
 
-        return HttpResponseRedirect(reverse("recipe_detail", args=[slug]))
+    return render(request, "juice_app/edit_comment.html", {"comment_form": comment_form})
 
-
+@login_required
 def comment_delete(request, slug, comment_id):
-    queryset = Recipe.objects.filter(status=1)
-    recipe = get_object_or_404(queryset, slug=slug)
+    recipe = get_object_or_404(Recipe, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, "Comment deleted!")
     else:
-        messages.add_message(
-            request, messages.ERROR, "You can only delete your own comments!"
-        )
+        messages.add_message(request, messages.ERROR, "You can only delete your own comments!")
 
     return HttpResponseRedirect(reverse("recipe_detail", args=[slug]))
