@@ -1,11 +1,29 @@
 {% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %}
+{% load cloudinary %}
+
  {% block content %}
 <div class="masthead">
   <div class="container">
 
     <div class="row g-0">
+      
+      {% if user.is_authenticated  %}
+      <div class="recipe_edit col-md-6" id="recipe{{ recipe.id }}">
+        <p>{{ recipe.ingredients }}</p>
+        <button class="btn-edit" data-recipe-id="{{ recipe.id }}">
+          Edit
+        </button>
+        <button class="btn-delete" data-recipe-id="{{ recipe.id }}">
+          Delete
+        </button>
+      </div>
       <div class="col-md-6 masthead-text">
         <h1 class="recipe-title">{{ recipe.title }}</h1>
+
+
+
+        {% endif %}
+
         <p class="recipe-subtitle">
           Author: {{ recipe.author|upper }} <br />
           {{ recipe.created_on }}
@@ -132,6 +150,7 @@
 
 {% endblock content %} {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/recipe.js' %}"></script>
 <script>
   $('.modal-auto-clear').on('shown.bs.modal', function () {
       // if data-timer attribute is set use that, otherwise use default (7000)

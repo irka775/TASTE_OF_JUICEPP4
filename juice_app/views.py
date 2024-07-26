@@ -44,6 +44,8 @@ def recipe_list(request):
 
 @login_required
 def recipe_edit(request, recipe_id):
+    print(recipe_id)
+    input()
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
     if request.method == "POST":

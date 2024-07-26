@@ -1,4 +1,4 @@
-* {
+  * {
     margin: 0;
     padding: 0;
     border: none;
@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    font-family: Lato, sans-serif;
+    font-family: 'Pacifico', sans-serif;
     font-size: 17px;
     font-weight: 450;
     color: #3a3a3a;
@@ -25,14 +25,16 @@ main {
 
 /* Navigation bar */
 .navbar {
-    box-shadow: 1px -1px 8px 0 darkorange;
-    border: 2px solid #c42c2c30;
+    
+    box-shadow: 1px -1px 8px 0 rgb(63, 122, 85);
+    border: 2px solid #476d5e30;
+    background-color: rgb(96, 176, 138);
 }
 
 /* Logo */
 .navbar-brand {
 
-    font-family: Oswald, sans-serif;
+    font-family:'Pacifico', sans-serif;
     font-weight: bold;
     font-size: 35px;
     letter-spacing: 1px;
@@ -47,7 +49,7 @@ main {
 a.nav-link {
     
     color: #3a3a3a;
-    font-family: Lato, sans-serif;
+    font-family: Pacifico, sans-serif;
     font-weight: bold;
     font-size: 18px;
 }
@@ -112,11 +114,13 @@ header {
 footer {
     flex-shrink: 0;
     text-align: center;
-    box-shadow: 1px -1px 8px 0 darkorange;
+    box-shadow: 1px -1px 8px 0 rgb(65, 136, 112);
     border: 2px solid #c42c2c30;
-    background-color: darkolivegreen;
+    background-color: rgb(96, 176, 138);
     padding: 10px;
 }
+
+
 
 footer p {
     font-family: Lato, sans-serif;
@@ -152,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 .image-background {
     height: 100vh;
     min-height: 500px;
-    background-image: url("../images/main_photo.webp");
+    background-image: url("../images/main_photo.60098cfe2af7.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -327,13 +331,11 @@ h1, h2, h3, h4, h5, h6 {
     transition: background-color 0.3s;
 }
 
-/* Additional helper classes */
-/* This class helps to apply any margin that might be needed in specific cases */
+
 .margin {
     margin: 16px;
 }
 
-/* This class helps to apply padding that might be needed in specific cases */
 .padding {
     padding: 16px;
 }
@@ -344,3 +346,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.form-control-file {
+    border: 2px solid #413c3c;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-title {
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-featured-image {
+    border: 2px dashed #ccc;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.form-description, .form-ingredients, .form-instructions {
+    resize: vertical;
+    padding: 10px;
+}
+
+.form-select {
+
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #f0f0f0; 
+}

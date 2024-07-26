@@ -18,14 +18,13 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-        button.setAttribute("click","edit_recipe/")
         let recipeId = e.target.getAttribute("data-recipe-id");
         let recipeContent = document.getElementById(
             `recipe${recipeId}`
         ).innerText;
         recipeTitle.value = recipeContent;
         submitButton.innerText = "Update";
-        recipeForm.setAttribute("action", `edit_recipe/`);
+        recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);
     });
 }
 

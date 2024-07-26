@@ -2,9 +2,10 @@
 
 {% block content %}
 <h2>Edit Recipe</h2>
-<form method="post" enctype="multipart/form-data">
+<form id="recipeForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em">
     {% csrf_token %}
     {{ recipe_form.as_p }}
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button id="submitButton" type="submit" class="btn btn-primary btn-lg">Save</button>
 </form>
 {% endblock %}
+
