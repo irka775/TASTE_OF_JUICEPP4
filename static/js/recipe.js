@@ -11,21 +11,17 @@ const recipeStatus = document.getElementById("id_status");
 const recipeForm = document.getElementById("recipeForm");
 const submitButton = document.getElementById("submitButton");
 
-
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-        button.setAttribute("click","edit_recipe/")
         let recipeId = e.target.getAttribute("data-recipe-id");
-        let recipeContent = document.getElementById(
-            `recipe${recipeId}`
-        ).innerText;
+        let recipeContent = document.getElementById(`recipe${recipeId}`).innerText;
         recipeTitle.value = recipeContent;
         submitButton.innerText = "Update";
-        recipeForm.setAttribute("action", `edit_recipe/`);
+        recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);
     });
 }
 
@@ -36,4 +32,3 @@ for (let button of deleteButtons) {
         deleteModal.show();
     });
 }
-

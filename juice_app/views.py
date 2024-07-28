@@ -44,8 +44,7 @@ def recipe_list(request):
 
 @login_required
 def recipe_edit(request, recipe_id):
-    print(recipe_id)
-    input()
+
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
     if request.method == "POST":
@@ -66,10 +65,9 @@ def recipe_delete(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     if recipe.author == request.user:
         recipe.delete()
-        messages.add_message(request, messages.SUCCESS, "Recipe deleted!")
+        messages.add_message(request, messages.SUCCESS, "Recipe deleted successfully!")
     else:
-        messages.add_message(request, messages.ERROR, "You can only delete your own Recipes!")
-    
+        messages.add_message(request, messages.ERROR, "You can only delete your own recipes.")
     return redirect("recipe_list")
 
 def recipe_detail(request, slug):
@@ -77,6 +75,7 @@ def recipe_detail(request, slug):
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-created_on")
     comment_count = recipe.comments.filter(approved=True).count()
+
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -101,6 +100,10 @@ def recipe_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+
+
+#==========================================================================================================
+
 
 @login_required
 def comment_edit(request, slug, comment_id):
