@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda+One|Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Merienda One', sans-serif;
+    font-size: 17px;
+    font-weight: 450;
+    color: #3a3a3a;
+    background-color: #F9FAFC;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Navigation bar */
+.navbar {
+
+    box-shadow: 1px -1px 8px 0 rgb(63, 122, 85);
+    border: 2px solid #476d5e30;
+    background-color: rgb(96, 176, 138);
+}
+
+/* Logo */
+.navbar-brand {
+
+    font-family: 'Merienda One', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    letter-spacing: 1px;
+    color: rgb(10, 32, 10);
+    font-weight: 400;
+}
+
+.navbar-brand:hover {
+    color: #850000;
+}
+
+a.nav-link {
+
+    color: #3a3a3a;
+    font-family: Merienda One, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #850000;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+    color: #850000;
+}
+
+header {
+
+    margin-bottom: 0;
+}
+
+/* Buttons */
+.btn {
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-dark {
+    border: none;
+    border-radius: 5px;
+    background-color: #188181;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background-color: #23BBBB;
+}
+
+.btn-primary:hover {
+    background-color: darkblue;
+}
+
+.btn-signup {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #188181;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-signup:hover {
+    background-color: #23BBBB;
+}
+
+/* Footer */
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    box-shadow: 1px -1px 8px 0 rgb(65, 136, 112);
+    border: 2px solid #c42c2c30;
+    background-color: rgb(96, 176, 138);
+    padding: 10px;
+}
+
+
+
+footer p {
+    font-family: Merienda, sans-serif;
+    font-size: 16px;
+    color: white;
+    font-weight: 450;
+    margin-bottom: 0;
+}
+
+footer>a {
+    margin-right: 30px;
+    font-size: x-large;
+    color: white;
+}
+
+.social-links {
+    transition: all 0.3s linear;
+}
+
+.social-links:hover {
+    color: white;
+    font-weight: bold;
+    transform: scale(1.5);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Oswald, sans-serif;
+    color: #191a1a;
+}
+
+/* Index Page */
+.image-background {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url("../images/main_photo.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.with-shadow {
+    background-color: #0d5876;
+    padding: 15px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.display-1 {
+    font-family: Lato, sans-serif;
+    font-size: x-large;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.lead {
+    line-height: 1.5;
+    color: white;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+}
+
+/* Login and Signup Form */
+.card {
+    text-decoration: none;
+
+    border-color: black;
+    box-shadow: 1px -1px 8px black;
+}
+
+.delete_line {
+    text-decoration: none;
+}
+
+.card-bg {
+
+    background-color: #188181;
+}
+
+.login,
+.signup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login input[type="text"],
+.login input[type="password"],
+.signup input[type="text"],
+.signup input[type="email"],
+.signup input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+/* Recipe List Page */
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    font-size: 16px;
+}
+
+/* Recipe List Pagination */
+.page-link {
+    background-color: rgb(55, 57, 209);
+    font-weight: bold;
+    color: white;
+    border: 2px solid #dee2e6;
+}
+
+.pagination {
+    margin-bottom: 30px;
+}
+
+/* Recipe Details */
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.like-icon {
+    font-size: 27px;
+}
+
+.liked {
+    color: red;
+}
+
+.spacer {
+    margin-left: 30px;
+}
+
+.spacer-font {
+    font-size: 20px;
+}
+
+.btn-spacing {
+    margin-right: 14px;
+}
+
+.title-container h1,
+.ingredients-container p,
+.instructions-container p {
+    word-wrap: break-word;
+}
+
+.ingredients-container {
+    font-size: 18px;
+    font-family: Lato, sans-serif;
+    color: #3a3a3a;
+}
+
+.instructions-container p {
+    font-size: 18px;
+    font-family: Lato, sans-serif;
+    color: #3a3a3a;
+}
+
+/* Error Page */
+.lead-text {
+    line-height: 1.5;
+    color: black;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+}
+
+/* Search Recipes Page */
+.search-form {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 8px;
+    border: 1px solid black;
+    background-color: dimgray;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    flex: 1;
+    padding: 8px;
+}
+
+.search-input {
+    margin-right: 8px;
+}
+
+.search-btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.margin {
+    margin: 16px;
+}
+
+.padding {
+    padding: 16px;
+}
+
+.masthead-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.form-control-file {
+    border: 2px solid #413c3c;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-title {
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-featured-image {
+    border: 2px dashed #ccc;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.form-description,
+.form-ingredients,
+.form-instructions {
+    resize: vertical;
+    padding: 10px;
+}
+
+.form-select {
+
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #f0f0f0;
+}
+
+
+.action-buttons a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    /* Green */
+}
+
+.btn-delete {
+    background-color: #f44336;
+    /* Red */
+}
+
+.action-buttons {
+    margin-top: 10px;
+}

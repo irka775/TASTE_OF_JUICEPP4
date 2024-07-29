@@ -7,7 +7,6 @@
 <div class="masthead">
   <div class="container">
     <div class="row g-0">
-      {% if user.is_authenticated %}
       <div class="col-md-6 masthead-text">
         <h1 class="recipe-title">{{ recipe.title }}</h1>
         <p class="recipe-subtitle">
@@ -16,17 +15,13 @@
         </p>
       </div>
       <div class="recipe_edit col-md-6" id="recipe{{ recipe.id }}">
-
-
-        {% if "placeholder" in post.featured_image.url %}
-
+        {% if "placeholder" in recipe.featured_image.url %}
         <img class="card-img-top" src="{% static 'images/default.jpg' %}"
             alt="placeholder image">
         {% else %}
-        <img class="card-img-top" src=" {{ recipe.featured_image.url }}" alt="{{ post.title }}">
+        <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
         {% endif %}
       </div>
-      {% endif %}
     </div>
 
     <div class="row">
@@ -74,7 +69,6 @@
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
           <div class="comment" id="comment{{ comment.id }}">
-            <p>{{ comment.body }}</p>
             <button class="btn-edit" data-comment-id="{{ comment.id }}">
               Edit
             </button>
@@ -84,6 +78,7 @@
           </div>
           {% endif %}
         </div>
+        <hr>
         {% endfor %}
       </div>
     </div>
@@ -127,7 +122,6 @@
 </div>
 
 {% block extras %}
-<script src="{% static 'js/recipe.js' %}"></script>
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
 {% endblock content %}
