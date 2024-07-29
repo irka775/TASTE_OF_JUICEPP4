@@ -4,16 +4,13 @@ from django.contrib import messages
 from .models import Book
 from .form import BookForm
 
-
 def book_list(request):
     books = Book.objects.all()
-    return render(request, "testapp/book_list.html", {"books": books})
-
+    return render(request, 'testapp/book_list.html', {'books': books})
 
 def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(request, "testapp/book_detail.html", {"book": book})
-
+    return render(request, 'testapp/book_detail.html', {'book': book})
 
 @login_required
 def book_new(request):
@@ -23,11 +20,10 @@ def book_new(request):
             book = form.save(commit=False)
             book.save()
             messages.success(request, "Book added successfully!")
-            return redirect("book_detail", pk=book.pk)
+            return redirect('book_detail', pk=book.pk)
     else:
         form = BookForm()
-    return render(request, "testapp/book_edit.html", {"form": form})
-
+    return render(request, 'testapp/book_edit.html', {'form': form})
 
 @login_required
 def book_edit(request, pk):
@@ -38,11 +34,10 @@ def book_edit(request, pk):
             book = form.save(commit=False)
             book.save()
             messages.success(request, "Book updated successfully!")
-            return redirect("book_detail", pk=book.pk)
+            return redirect('book_detail', pk=book.pk)
     else:
         form = BookForm(instance=book)
-    return render(request, "testapp/book_edit.html", {"form": form})
-
+    return render(request, 'testapp/book_edit.html', {'form': form})
 
 @login_required
 def book_delete(request, pk):
@@ -50,5 +45,5 @@ def book_delete(request, pk):
     if request.method == "POST":
         book.delete()
         messages.success(request, "Book deleted successfully!")
-        return redirect("book_list")
-    return render(request, "testapp/book_confirm_delete.html", {"book": book})
+        return redirect('book_list')
+    return render(request, 'testapp/book_confirm_delete.html', {'book': book})

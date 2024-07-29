@@ -16,15 +16,15 @@
         </p>
       </div>
       <div class="recipe_edit col-md-6" id="recipe{{ recipe.id }}">
-        <div class="d-md-block col-md-6 masthead-image">
-          <img src="{{ recipe.featured_image.url }}" class="scale img-fluid" alt="placeholder" />
-        </div>
-        <button class="recipe-btn-edit" data-recipe-id="{{ recipe.id }}">
-          Edit
-        </button>
-        <button class="recipe-btn-delete" data-recipe-id="{{ recipe.id }}">
-          Delete
-        </button>
+
+
+        {% if "placeholder" in post.featured_image.url %}
+
+        <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+            alt="placeholder image">
+        {% else %}
+        <img class="card-img-top" src=" {{ recipe.featured_image.url }}" alt="{{ post.title }}">
+        {% endif %}
       </div>
       {% endif %}
     </div>

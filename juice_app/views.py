@@ -8,6 +8,35 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
 
+
+@login_required
+def recipe_edit(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
+    if request.method == "POST":
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.save()
+            messages.success(request, "Recipe updated successfully!")
+            return redirect('recipe_detail', slug=recipe.slug)
+    else:
+        form = RecipeForm(instance=recipe)
+    return render(request, 'juice_app/add_juice.html', {'form': form})
+
+@login_required
+def recipe_delete(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
+    if request.method == "POST":
+        recipe.delete()
+        messages.success(request, "Recipe deleted successfully!")
+        return redirect('recipe_list')
+    return render(request, 'juice_app/recipe_confirm_delete.html', {'recipe': recipe})
+
+
+
+
+
+
 class HomePage(generic.ListView):
     queryset = Recipe.objects.filter(status=1)
     template_name = "juice_app/index.html"
@@ -21,13 +50,27 @@ def add_juice(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
-            return redirect("recipe_list")
+            messages.success(request, "Book added successfully!")
+            return redirect("recipe_detail",slug=recipe.slug)
     else:
         form = RecipeForm()
     return render(request, "juice_app/add_juice.html", {"form": form})
 
+@login_required
+def book_new(request):
+    if request.method == "POST":
+        form = RecipeForm(request.POST,request.FILES)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.save()
+            messages.success(request, "Book added successfully!")
+            return redirect('book_detail', slug=recipe.slug)
+    else:
+        form = RecipeForm()
+    return render(request, 'juice_app/book_edit.html', {'form': form})
 
-def recipe_list(request):
+
+def recipe_list(request ):
     category_id = request.GET.get("category", None)
     if category_id:
         recipes = Recipe.objects.filter(category_id=category_id).order_by("id")
@@ -46,38 +89,38 @@ def recipe_list(request):
     )
 
 
-@login_required
-def recipe_edit(request, recipe_id):
+# @login_required
+# def recipe_edit(request, recipe_id):
 
-    recipe = get_object_or_404(Recipe, pk=recipe_id)
+#     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
-    if request.method == "POST":
-        recipe_form = RecipeForm(
-            data=request.POST, files=request.FILES, instance=recipe
-        )
-        if recipe_form.is_valid() and recipe.author == request.user:
-            recipe_form.save()
-            messages.add_message(request, messages.SUCCESS, "Recipe Updated!")
-            return redirect("recipe_list")
-        else:
-            messages.add_message(request, messages.ERROR, "Error updating recipe!")
-    else:
-        recipe_form = RecipeForm(instance=recipe)
+#     if request.method == "POST":
+#         recipe_form = RecipeForm(
+#             data=request.POST, files=request.FILES, instance=recipe
+#         )
+#         if recipe_form.is_valid() and recipe.author == request.user:
+#             recipe_form.save()
+#             messages.add_message(request, messages.SUCCESS, "Recipe Updated!")
+#             return redirect("recipe_list")
+#         else:
+#             messages.add_message(request, messages.ERROR, "Error updating recipe!")
+#     else:
+#         recipe_form = RecipeForm(instance=recipe)
 
-    return render(request, "juice_app/edit_recipe.html", {"recipe_form": recipe_form})
+#     return render(request, "juice_app/edit_recipe.html", {"recipe_form": recipe_form})
 
 
-@login_required
-def recipe_delete(request, recipe_id):
-    recipe = get_object_or_404(Recipe, pk=recipe_id)
-    if recipe.author == request.user:
-        recipe.delete()
-        messages.add_message(request, messages.SUCCESS, "Recipe deleted successfully!")
-    else:
-        messages.add_message(
-            request, messages.ERROR, "You can only delete your own recipes."
-        )
-    return redirect("recipe_list")
+# @login_required
+# def recipe_delete(request, recipe_id):
+#     recipe = get_object_or_404(Recipe, pk=recipe_id)
+#     if recipe.author == request.user:
+#         recipe.delete()
+#         messages.add_message(request, messages.SUCCESS, "Recipe deleted successfully!")
+#     else:
+#         messages.add_message(
+#             request, messages.ERROR, "You can only delete your own recipes."
+#         )
+#     return redirect("recipe_list")
 
 
 def recipe_detail(request, slug):
