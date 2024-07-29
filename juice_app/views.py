@@ -1,12 +1,49 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from .models import Recipe, Comment, Category
 from .forms import CommentForm, RecipeForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
 
+
+def ajax_search(request):
+    query = request.GET.get("q", "")
+    recipes = (
+        Recipe.objects.filter(
+            Q(title__icontains=query)
+            | Q(description__icontains=query)
+            | Q(ingredients__icontains=query)
+            | Q(instructions__icontains=query)
+        )
+        if query
+        else Recipe.objects.all()
+    )
+
+    results = []
+    for recipe in recipes:
+        results.append(
+            {
+                "title": recipe.title,
+                "url": reverse("recipe_detail", args=[recipe.slug]),
+                "image": recipe.featured_image.url if recipe.featured_image else "",
+            }
+        )
+
+    return JsonResponse({"results": results})
+
+
+def ajax_delete_recipe(request, slug):
+    if request.method == "POST":
+        recipe = get_object_or_404(Recipe, slug=slug)
+        if recipe.author == request.user:
+            recipe.delete()
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False}, status=403)
+    return JsonResponse({"success": False}, status=405)
 
 
 @login_required
@@ -18,10 +55,11 @@ def recipe_edit(request, slug):
             recipe = form.save(commit=False)
             recipe.save()
             messages.success(request, "Recipe updated successfully!")
-            return redirect('recipe_detail', slug=recipe.slug)
+            return redirect("recipe_detail", slug=recipe.slug)
     else:
         form = RecipeForm(instance=recipe)
-    return render(request, 'juice_app/add_juice.html', {'form': form})
+    return render(request, "juice_app/add_juice.html", {"form": form})
+
 
 @login_required
 def recipe_delete(request, slug):
@@ -29,12 +67,8 @@ def recipe_delete(request, slug):
     if request.method == "POST":
         recipe.delete()
         messages.success(request, "Recipe deleted successfully!")
-        return redirect('recipe_list')
-    return render(request, 'juice_app/recipe_confirm_delete.html', {'recipe': recipe})
-
-
-
-
+        return redirect("recipe_list")
+    return render(request, "juice_app/recipe_confirm_delete.html", {"recipe": recipe})
 
 
 class HomePage(generic.ListView):
@@ -50,29 +84,39 @@ def add_juice(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
-            messages.success(request, "Book added successfully!")
-            return redirect("recipe_detail",slug=recipe.slug)
+            messages.success(request, "Recipe added successfully!")
+            return redirect("recipe_detail", slug=recipe.slug)
     else:
         form = RecipeForm()
     return render(request, "juice_app/add_juice.html", {"form": form})
 
+
 @login_required
 def book_new(request):
     if request.method == "POST":
-        form = RecipeForm(request.POST,request.FILES)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
             recipe.save()
-            messages.success(request, "Book added successfully!")
-            return redirect('book_detail', slug=recipe.slug)
+            messages.success(request, "Recipe added successfully!")
+            return redirect("recipe_detail", slug=recipe.slug)
     else:
         form = RecipeForm()
-    return render(request, 'juice_app/book_edit.html', {'form': form})
+    return render(request, "juice_app/book_edit.html", {"form": form})
 
 
-def recipe_list(request ):
-    category_id = request.GET.get("category", None)
-    if category_id:
+def recipe_list(request):
+    query = request.GET.get("q")
+    category_id = request.GET.get("category")
+
+    if query:
+        recipes = Recipe.objects.filter(
+            Q(title__icontains=query)
+            | Q(description__icontains=query)
+            | Q(ingredients__icontains=query)
+            | Q(instructions__icontains=query)
+        )
+    elif category_id:
         recipes = Recipe.objects.filter(category_id=category_id).order_by("id")
     else:
         recipes = Recipe.objects.all().order_by("id")
@@ -87,40 +131,6 @@ def recipe_list(request ):
         "juice_app/recipe_list.html",
         {"page_obj": page_obj, "recipe_list": recipes, "categories": categories},
     )
-
-
-# @login_required
-# def recipe_edit(request, recipe_id):
-
-#     recipe = get_object_or_404(Recipe, pk=recipe_id)
-
-#     if request.method == "POST":
-#         recipe_form = RecipeForm(
-#             data=request.POST, files=request.FILES, instance=recipe
-#         )
-#         if recipe_form.is_valid() and recipe.author == request.user:
-#             recipe_form.save()
-#             messages.add_message(request, messages.SUCCESS, "Recipe Updated!")
-#             return redirect("recipe_list")
-#         else:
-#             messages.add_message(request, messages.ERROR, "Error updating recipe!")
-#     else:
-#         recipe_form = RecipeForm(instance=recipe)
-
-#     return render(request, "juice_app/edit_recipe.html", {"recipe_form": recipe_form})
-
-
-# @login_required
-# def recipe_delete(request, recipe_id):
-#     recipe = get_object_or_404(Recipe, pk=recipe_id)
-#     if recipe.author == request.user:
-#         recipe.delete()
-#         messages.add_message(request, messages.SUCCESS, "Recipe deleted successfully!")
-#     else:
-#         messages.add_message(
-#             request, messages.ERROR, "You can only delete your own recipes."
-#         )
-#     return redirect("recipe_list")
 
 
 def recipe_detail(request, slug):
@@ -154,9 +164,6 @@ def recipe_detail(request, slug):
             "comment_form": comment_form,
         },
     )
-
-
-# ==========================================================================================================
 
 
 @login_required

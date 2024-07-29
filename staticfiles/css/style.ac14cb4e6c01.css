@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Merienda+One|Open+Sans&display=swap');
 
-/* Universal styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +7,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -28,6 +28,7 @@ main {
 
 /* Navigation bar */
 .navbar {
+
     box-shadow: 1px -1px 8px 0 rgb(63, 122, 85);
     border: 2px solid #476d5e30;
     background-color: rgb(96, 176, 138);
@@ -35,6 +36,7 @@ main {
 
 /* Logo */
 .navbar-brand {
+
     font-family: 'Merienda One', sans-serif;
     font-weight: bold;
     font-size: 35px;
@@ -48,6 +50,7 @@ main {
 }
 
 a.nav-link {
+
     color: #3a3a3a;
     font-family: Merienda One, sans-serif;
     font-weight: bold;
@@ -66,6 +69,7 @@ a.nav-link {
 }
 
 header {
+
     margin-bottom: 0;
 }
 
@@ -119,6 +123,8 @@ footer {
     padding: 10px;
 }
 
+
+
 footer p {
     font-family: Merienda One, sans-serif;
     font-size: 16px;
@@ -127,7 +133,7 @@ footer p {
     margin-bottom: 0;
 }
 
-footer a {
+footer>a {
     margin-right: 30px;
     font-size: x-large;
     color: white;
@@ -147,7 +153,7 @@ footer a {
 .image-background {
     height: 100vh;
     min-height: 500px;
-    background-image: url("../images/main_photo.webp");
+    background-image: url("../images/main_photo.60098cfe2af7.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -180,6 +186,7 @@ footer a {
 /* Login and Signup Form */
 .card {
     text-decoration: none;
+
     border-color: black;
     box-shadow: 1px -1px 8px black;
 }
@@ -189,10 +196,12 @@ footer a {
 }
 
 .card-bg {
+
     background-color: #188181;
 }
 
-.login, .signup {
+.login,
+.signup {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -268,7 +277,13 @@ footer a {
     word-wrap: break-word;
 }
 
-.ingredients-container, .instructions-container p {
+.ingredients-container {
+    font-size: 18px;
+    font-family: Lato, sans-serif;
+    color: #3a3a3a;
+}
+
+.instructions-container p {
     font-size: 18px;
     font-family: Lato, sans-serif;
     color: #3a3a3a;
@@ -315,7 +330,7 @@ footer a {
     transition: background-color 0.3s;
 }
 
-/* Utility Classes */
+
 .margin {
     margin: 16px;
 }
@@ -328,6 +343,7 @@ footer a {
     max-width: 100%;
     height: auto;
 }
+
 
 .form-control-file {
     border: 2px solid #413c3c;
@@ -349,17 +365,19 @@ footer a {
     border-radius: 5px;
 }
 
-.form-description, .form-ingredients, .form-instructions {
+.form-description,
+.form-ingredients,
+.form-instructions {
     resize: vertical;
     padding: 10px;
 }
 
 .form-select {
+
     background-color: #f8f9fa;
     padding: 10px;
 }
 
-/* Recipe Image */
 .recipe-image {
     width: 100%;
     height: 350px;
@@ -367,14 +385,9 @@ footer a {
     background-color: #f0f0f0;
 }
 
-/* Action Buttons */
-.action-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
 
 .action-buttons a {
+    text-align: center;
     display: inline-block;
     padding: 10px 15px;
     margin-right: 10px;
@@ -383,14 +396,16 @@ footer a {
     border-radius: 5px;
 }
 
-.action-buttons a:last-child {
-    margin-right: 0;
-}
-
 .btn-edit {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
+    /* Green */
 }
 
 .btn-delete {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
+    /* Red */
+}
+
+.action-buttons {
+    margin-top: 10px;
 }
