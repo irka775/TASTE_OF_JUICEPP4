@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "django_resized",
     "juice_app",
     "about",
+    "testapp"
 ]
 
 SITE_ID = 1
@@ -113,7 +114,7 @@ WSGI_APPLICATION = "juice_project.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(
         default=os.getenv("DATABASE_URL"),
-        conn_max_age=60,  
+        conn_max_age=60,
         ssl_require=True,
     )
 }
@@ -122,10 +123,7 @@ DATABASES = {
 # Cloudinary settings
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeanyapp.com",
-    "https://*.herokuapp.com"
-]
+CSRF_TRUSTED_ORIGINS = ["https://*.codeanyapp.com", "https://*.herokuapp.com"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

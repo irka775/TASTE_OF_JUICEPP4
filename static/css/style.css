@@ -1,4 +1,6 @@
-  * {
+@import url('https://fonts.googleapis.com/css?family=Merienda+One|Open+Sans&display=swap');
+ 
+ * {
     margin: 0;
     padding: 0;
     border: none;
@@ -10,7 +12,7 @@ html, body {
 }
 
 body {
-    font-family: 'Pacifico', sans-serif;
+    font-family: 'Merienda One', sans-serif;
     font-size: 17px;
     font-weight: 450;
     color: #3a3a3a;
@@ -34,7 +36,7 @@ main {
 /* Logo */
 .navbar-brand {
 
-    font-family:'Pacifico', sans-serif;
+    font-family:'Merienda One', sans-serif;
     font-weight: bold;
     font-size: 35px;
     letter-spacing: 1px;
@@ -49,7 +51,7 @@ main {
 a.nav-link {
     
     color: #3a3a3a;
-    font-family: Pacifico, sans-serif;
+    font-family: Merienda One, sans-serif;
     font-weight: bold;
     font-size: 18px;
 }
@@ -123,7 +125,7 @@ footer {
 
 
 footer p {
-    font-family: Lato, sans-serif;
+    font-family: Merienda, sans-serif;
     font-size: 16px;
     color: white;
     font-weight: 450;

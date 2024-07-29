@@ -5,4 +5,4 @@ from django import forms
 class CollaborateForm(forms.ModelForm):
     class Meta:
         model = CollaborateRequest
-        fields = ('name', 'email', 'message','about_img')
+        fields = ("name", "email", "message", "about_img")

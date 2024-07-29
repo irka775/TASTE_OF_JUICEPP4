@@ -22,10 +22,18 @@ class RecipeForm(forms.ModelForm):
         ]
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control form-title"}),
-            "featured_image": forms.ClearableFileInput(attrs={"class": "form-control-file form-featured-image"}),
-            "description": forms.Textarea(attrs={"class": "form-control form-description"}),
+            "featured_image": forms.ClearableFileInput(
+                attrs={"class": "form-control-file form-featured-image"}
+            ),
+            "description": forms.Textarea(
+                attrs={"class": "form-control form-description"}
+            ),
             "status": forms.Select(attrs={"class": "form-control form-select"}),
-            "ingredients": forms.Textarea(attrs={"class": "form-control form-ingredients"}),
-            "instructions": forms.Textarea(attrs={"class": "form-control form-instructions"}),
+            "ingredients": forms.Textarea(
+                attrs={"class": "form-control form-ingredients"}
+            ),
+            "instructions": forms.Textarea(
+                attrs={"class": "form-control form-instructions"}
+            ),
             "category": forms.Select(attrs={"class": "form-control form-select"}),
         }

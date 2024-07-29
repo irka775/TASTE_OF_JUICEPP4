@@ -1,4 +1,4 @@
-const editButtons = document.getElementsByClassName("btn-edit");
+const editButtons = document.getElementsByClassName("recipe-btn-edit");
 
 const recipeTitle = document.getElementById("id_title");
 const recipeCategory = document.getElementById("id_category");
