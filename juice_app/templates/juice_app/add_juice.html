@@ -1,44 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container card mb-4">
+    <!-- Title for the form page -->
     <h2>Add New Juice Recipe</h2>
-    <form  method="post" enctype="multipart/form-data">
+    <!-- Form for adding a new juice recipe -->
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        <!-- CSRF token for security -->
+        
+        <!-- Form group for the title field -->
         <div class="form-group">
             {{ form.title.label_tag }}
             {{ form.title }}
         </div>
+        
+        <!-- Form group for the featured image field -->
         <div class="form-group">
             {{ form.featured_image.label_tag }}
             {{ form.featured_image }}
         </div>
+        
+        <!-- Form group for the description field -->
         <div class="form-group">
             {{ form.description.label_tag }}
             {{ form.description }}
         </div>
+        
+        <!-- Form group for the status field -->
         <div class="form-group">
             {{ form.status.label_tag }}
             {{ form.status }}
         </div>
+        
+        <!-- Form group for the ingredients field -->
         <div class="form-group">
             {{ form.ingredients.label_tag }}
             {{ form.ingredients }}
         </div>
+        
+        <!-- Form group for the instructions field -->
         <div class="form-group">
             {{ form.instructions.label_tag }}
             {{ form.instructions }}
         </div>
+        
+        <!-- Form group for the category field -->
         <div class="form-group">
             {{ form.category.label_tag }}
             {{ form.category }}
         </div>
+        
         <br>
+        <!-- Submit button to add the new juice recipe -->
         <button type="submit" class="btn btn-primary">Add Juice</button>
-
         <br>
         <br>
-
-
     </form>
 </div>
 {% endblock %}

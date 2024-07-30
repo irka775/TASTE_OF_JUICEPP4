@@ -7,6 +7,7 @@
 <div class="masthead">
   <div class="container">
     <div class="row g-0">
+      <!-- Section for the recipe title and author information -->
       <div class="col-md-6 masthead-text">
         <h1 class="recipe-title">{{ recipe.title }}</h1>
         <p class="recipe-subtitle">
@@ -14,11 +15,14 @@
           {{ recipe.created_on }}
         </p>
       </div>
+      <!-- Section for the recipe image -->
       <div class="recipe_edit col-md-6" id="recipe{{ recipe.id }}">
         {% if "placeholder" in recipe.featured_image.url %}
+        <!-- Display placeholder image if no featured image is available -->
         <img class="card-img-top" src="{% static 'images/default.jpg' %}"
             alt="placeholder image">
         {% else %}
+        <!-- Display the recipe's featured image -->
         <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
         {% endif %}
       </div>
@@ -27,10 +31,12 @@
     <div class="row">
       <div class="col card mb-4 mt-3 left top">
         <div class="card-body">
+          <!-- Section for the recipe ingredients -->
           <h3>Ingredients:</h3>
           <p class="card-text">{{ recipe.ingredients | safe }}</p>
         </div>
         <div class="card-body">
+          <!-- Section for the recipe instructions -->
           <h3>Instructions:</h3>
           <p class="card-text">{{ recipe.instructions | safe }}</p>
         </div>
@@ -42,6 +48,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <!-- Display the number of comments -->
       <strong class="text-secondary">
         <i class="far fa-comments"></i> {{ comment_count }}
       </strong>
@@ -52,10 +59,12 @@
   </div>
   <div class="row">
     <div class="col-md-8 card mb-4 mt-3">
+      <!-- Section for displaying comments -->
       <h3>Comments:</h3>
       <div class="card-body">
         {% for comment in comments %}
         <div class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
+          <!-- Display each comment's author, date, and body -->
           <p class="font-weight-bold">
             {{ comment.author }}
             <span class="font-weight-normal">{{ comment.created_on }}</span>
@@ -64,9 +73,11 @@
           <div id="comment{{ comment.id }}">
             {{ comment.body | linebreaks }}
           </div>
+          <!-- Indicate if a comment is awaiting approval -->
           {% if not comment.approved and comment.author == user %}
           <p class="approval">This comment is awaiting approval</p>
           {% endif %}
+          <!-- Edit and delete buttons for authenticated users who authored the comment -->
           {% if user.is_authenticated and comment.author == user %}
           <div class="comment" id="comment{{ comment.id }}">
             <button class="btn-edit" data-comment-id="{{ comment.id }}">
@@ -84,6 +95,7 @@
     </div>
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
+        <!-- Section for leaving a new comment -->
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
         <p>Commenting as: {{ user.username }}</p>
@@ -102,7 +114,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal for delete confirmation -->
 <div class="modal fade modal-auto-clear" data-timer="2000" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -122,6 +134,7 @@
 </div>
 
 {% block extras %}
+<!-- Link to external JavaScript file for handling comments -->
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
 {% endblock content %}

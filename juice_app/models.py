@@ -6,6 +6,9 @@ from django.utils.text import slugify
 
 
 class Category(models.Model):
+    """
+    Model representing a category for recipes.
+    """
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(blank=True)
@@ -15,10 +18,14 @@ class Category(models.Model):
         return self.name
 
 
+# Status choices for the Recipe model
 STATUS = ((0, "Draft"), (1, "Publish"))
 
 
 class Recipe(models.Model):
+    """
+    Model representing a recipe.
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
@@ -37,12 +44,18 @@ class Recipe(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        """
+        Override the save method to auto-generate the slug from the title if it doesn't exist.
+        """
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
+    """
+    Model representing a comment on a recipe.
+    """
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="comments"
     )

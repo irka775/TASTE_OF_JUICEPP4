@@ -1,18 +1,18 @@
 import os
 import django
 
-# Configurează setările Django
+# Configure Django settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "juice_project.settings")
 django.setup()
 
 from django.db import connection
 from juice_app.models import Category, Recipe
 
-# Șterge toate intrările din tabele
+# Delete all entries from the Category and Recipe tables
 Category.objects.all().delete()
 Recipe.objects.all().delete()
 
-# Resetează secvențele ID-urilor auto-increment
+# Reset auto-increment ID sequences
 with connection.cursor() as cursor:
     cursor.execute("ALTER SEQUENCE juice_app_category_id_seq RESTART WITH 1")
     cursor.execute("ALTER SEQUENCE juice_app_recipe_id_seq RESTART WITH 1")

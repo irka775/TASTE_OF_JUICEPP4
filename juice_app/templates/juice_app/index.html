@@ -6,16 +6,19 @@
     <div class="container h-100 justify-content-center">
         <div class="row h-100">
             <div class="col-12 text-center">
+                <!-- Section with shadow effect for welcome message -->
                 <div class="with-shadow">
+                    <!-- Main welcome message -->
                     <h1 class="display-1">Welcome to our website!</h1>
+                    <!-- Lead paragraph explaining the purpose of the website -->
                     <p class="lead">Here we share the best juice recipes for you to try and enjoy!!</p>
                     <p class="lead">Our mission is to provide a wide variety of delicious and healthy juice recipes that you can easily make at home.</p>
                     <p class="lead">Our team is passionate about juicing and we love experimenting with different ingredients to create unique and tasty combinations. We hope you find our recipes inspiring and we encourage you to share your own juice creations with us!</p>
                     <p class="lead">Thank you for visiting our site, and happy juicing!</p>
+                    <!-- Conditional button for users who are not authenticated -->
                     {% if not user.is_authenticated %}
-                 <br>
+                    <br>
                     <a href="{% url 'account_signup' %}" class="btn btn-dark mb-2">Join us now.</a>
-
                     {% endif %}
                 </div>
             </div>

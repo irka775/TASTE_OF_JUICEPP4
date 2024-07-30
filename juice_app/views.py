@@ -10,6 +10,10 @@ from django.db.models import Q
 
 
 def ajax_search(request):
+    """
+    Handles AJAX search requests to filter recipes based on query parameters.
+    Returns a JSON response with search results.
+    """
     query = request.GET.get("q", "")
     recipes = (
         Recipe.objects.filter(
@@ -36,6 +40,10 @@ def ajax_search(request):
 
 
 def ajax_delete_recipe(request, slug):
+    """
+    Handles AJAX requests to delete a recipe. 
+    Only allows deletion if the current user is the author of the recipe.
+    """
     if request.method == "POST":
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.author == request.user:
@@ -48,6 +56,10 @@ def ajax_delete_recipe(request, slug):
 
 @login_required
 def recipe_edit(request, slug):
+    """
+    Handles editing an existing recipe. 
+    Only accessible to authenticated users and updates the recipe if the form is valid.
+    """
     recipe = get_object_or_404(Recipe, slug=slug)
     if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
@@ -63,6 +75,10 @@ def recipe_edit(request, slug):
 
 @login_required
 def recipe_delete(request, slug):
+    """
+    Handles the deletion of a recipe. 
+    Only accessible via POST request and displays a confirmation page.
+    """
     recipe = get_object_or_404(Recipe, slug=slug)
     if request.method == "POST":
         recipe.delete()
@@ -72,12 +88,19 @@ def recipe_delete(request, slug):
 
 
 class HomePage(generic.ListView):
+    """
+    Displays a list of recipes with status=1 on the homepage.
+    """
     queryset = Recipe.objects.filter(status=1)
     template_name = "juice_app/index.html"
 
 
 @login_required
 def add_juice(request):
+    """
+    Handles adding a new recipe. 
+    Only accessible to authenticated users and saves the new recipe if the form is valid.
+    """
     if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
@@ -93,6 +116,10 @@ def add_juice(request):
 
 @login_required
 def book_new(request):
+    """
+    Handles adding a new recipe for book creation. 
+    This function seems similar to `add_juice` and saves the new recipe if the form is valid.
+    """
     if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
@@ -106,6 +133,9 @@ def book_new(request):
 
 
 def recipe_list(request):
+    """
+    Displays a paginated list of recipes based on search query or category filter.
+    """
     query = request.GET.get("q")
     category_id = request.GET.get("category")
 
@@ -134,6 +164,9 @@ def recipe_list(request):
 
 
 def recipe_detail(request, slug):
+    """
+    Displays detailed information about a recipe and handles comment submissions.
+    """
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-created_on")
@@ -168,6 +201,10 @@ def recipe_detail(request, slug):
 
 @login_required
 def comment_edit(request, slug, comment_id):
+    """
+    Handles editing a comment. 
+    Only allows editing if the comment belongs to the current user.
+    """
     recipe = get_object_or_404(Recipe, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
@@ -189,6 +226,10 @@ def comment_edit(request, slug, comment_id):
 
 @login_required
 def comment_delete(request, slug, comment_id):
+    """
+    Handles deleting a comment. 
+    Only allows deletion if the comment belongs to the current user.
+    """
     recipe = get_object_or_404(Recipe, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
