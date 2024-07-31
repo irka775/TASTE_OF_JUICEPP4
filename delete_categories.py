@@ -1,3 +1,5 @@
+from juice_app.models import Category, Recipe
+from django.db import connection
 import os
 import django
 
@@ -5,8 +7,6 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "juice_project.settings")
 django.setup()
 
-from django.db import connection
-from juice_app.models import Category, Recipe
 
 # Delete all entries from the Category and Recipe tables
 Category.objects.all().delete()

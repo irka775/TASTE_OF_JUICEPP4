@@ -42,7 +42,7 @@ def ajax_search(request):
 
 def ajax_delete_recipe(request, slug):
     """
-    Handles AJAX requests to delete a recipe. 
+    Handles AJAX requests to delete a recipe.
     Only allows deletion if the current user is the author of the recipe.
     """
     if request.method == "POST":
@@ -58,7 +58,7 @@ def ajax_delete_recipe(request, slug):
 @login_required
 def recipe_edit(request, slug):
     """
-    Handles editing an existing recipe. 
+    Handles editing an existing recipe.
     Only accessible to authenticated users and updates the recipe if the form is valid.
     """
     recipe = get_object_or_404(Recipe, slug=slug)
@@ -68,7 +68,7 @@ def recipe_edit(request, slug):
             recipe = form.save(commit=False)
             recipe.save()
             messages.success(request, "Recipe updated successfully!")
-            return redirect("recipe_detail", slug=recipe.slug)
+            return redirect("recipe_list")
     else:
         form = RecipeForm(instance=recipe)
     return render(request, "juice_app/add_juice.html", {"form": form})
@@ -77,7 +77,7 @@ def recipe_edit(request, slug):
 @login_required
 def recipe_delete(request, slug):
     """
-    Handles the deletion of a recipe. 
+    Handles the deletion of a recipe.
     Only accessible via POST request and displays a confirmation page.
     """
     recipe = get_object_or_404(Recipe, slug=slug)
@@ -92,6 +92,7 @@ class HomePage(generic.ListView):
     """
     Displays a list of recipes with status=1 on the homepage.
     """
+
     queryset = Recipe.objects.filter(status=1)
     template_name = "juice_app/index.html"
 
@@ -99,7 +100,7 @@ class HomePage(generic.ListView):
 @login_required
 def add_juice(request):
     """
-    Handles adding a new recipe. 
+    Handles adding a new recipe.
     Only accessible to authenticated users and saves the new recipe if the form is valid.
     """
     if request.method == "POST":
@@ -118,7 +119,7 @@ def add_juice(request):
 @login_required
 def book_new(request):
     """
-    Handles adding a new recipe for book creation. 
+    Handles adding a new recipe for book creation.
     This function seems similar to `add_juice` and saves the new recipe if the form is valid.
     """
     if request.method == "POST":
@@ -160,7 +161,12 @@ def recipe_list(request):
     return render(
         request,
         "juice_app/recipe_list.html",
-        {"page_obj": page_obj, "recipe_list": recipes, "categories": categories,"DEBUG":DEBUG},
+        {
+            "page_obj": page_obj,
+            "recipe_list": recipes,
+            "categories": categories,
+            "DEBUG": DEBUG,
+        },
     )
 
 
@@ -203,7 +209,7 @@ def recipe_detail(request, slug):
 @login_required
 def comment_edit(request, slug, comment_id):
     """
-    Handles editing a comment. 
+    Handles editing a comment.
     Only allows editing if the comment belongs to the current user.
     """
     recipe = get_object_or_404(Recipe, slug=slug)
@@ -228,7 +234,7 @@ def comment_edit(request, slug, comment_id):
 @login_required
 def comment_delete(request, slug, comment_id):
     """
-    Handles deleting a comment. 
+    Handles deleting a comment.
     Only allows deletion if the comment belongs to the current user.
     """
     recipe = get_object_or_404(Recipe, slug=slug)

@@ -1,0 +1,1304 @@
+digraph model_graph {
+  // Dotfile by Django-Extensions graph_models
+  // Created: 2024-07-31 17:01
+  // Cli Options: -a --dot -o erd_diagram.dot
+
+  fontname = "Sans"
+  fontsize = 8
+  splines  = true
+  rankdir = "TB"
+
+  node [
+    fontname = "Sans"
+    fontsize = 8
+    shape = "plaintext"
+  ]
+
+  edge [
+    fontname = "Sans"
+    fontsize = 8
+  ]
+
+  // Labels
+
+
+  django_contrib_admin_models_LogEntry [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    LogEntry
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><B>content_type</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>user</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">action_flag</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">PositiveSmallIntegerField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">action_time</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">change_message</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">object_id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">object_repr</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  django_contrib_auth_models_AbstractUser [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    AbstractUser<BR/>&lt;<FONT FACE="Sans"><I>AbstractBaseUser,PermissionsMixin</I></FONT>&gt;
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">date_joined</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">email</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">EmailField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">first_name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">is_active</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">BooleanField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">is_staff</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">BooleanField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>is_superuser</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>BooleanField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>last_login</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>DateTimeField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">last_name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>password</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>CharField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">username</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  django_contrib_auth_models_Permission [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Permission
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>content_type</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">codename</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  django_contrib_auth_models_Group [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Group
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  django_contrib_auth_models_User [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    User<BR/>&lt;<FONT FACE="Sans"><I>AbstractUser</I></FONT>&gt;
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>date_joined</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>DateTimeField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>email</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>EmailField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>first_name</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>CharField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>is_active</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>BooleanField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>is_staff</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>BooleanField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>is_superuser</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>BooleanField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>last_login</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>DateTimeField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>last_name</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>CharField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>password</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>CharField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>username</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>CharField</I></FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  django_contrib_contenttypes_models_ContentType [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    ContentType
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">app_label</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">model</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  django_contrib_sessions_base_session_AbstractBaseSession [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    AbstractBaseSession
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">expire_date</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">session_data</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  django_contrib_sessions_models_Session [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Session<BR/>&lt;<FONT FACE="Sans"><I>AbstractBaseSession</I></FONT>&gt;
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I><B>session_key</B></I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I><B>CharField</B></I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>expire_date</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>DateTimeField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>session_data</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>TextField</I></FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  django_contrib_sites_models_Site [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Site
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">domain</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  allauth_account_models_EmailAddress [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    EmailAddress
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>user</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">email</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">EmailField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">primary</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">BooleanField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">verified</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">BooleanField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  allauth_account_models_EmailConfirmation [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    EmailConfirmation
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>email_address</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">created</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">key</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">sent</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  allauth_socialaccount_models_SocialApp [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    SocialApp
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">client_id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">key</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">provider</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">provider_id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">secret</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">settings</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">JSONField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  allauth_socialaccount_models_SocialAccount [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    SocialAccount
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>user</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">date_joined</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">extra_data</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">JSONField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">last_login</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">provider</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">uid</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  allauth_socialaccount_models_SocialToken [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    SocialToken
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>AutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>account</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><B>app</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">expires_at</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">token</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">token_secret</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  django_summernote_models_AbstractAttachment [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    AbstractAttachment
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">file</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">FileField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">uploaded</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  django_summernote_models_Attachment [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Attachment<BR/>&lt;<FONT FACE="Sans"><I>AbstractAttachment</I></FONT>&gt;
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><I>file</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><I>FileField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>name</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>CharField</I></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>uploaded</I></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans"><I>DateTimeField</I></FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  juice_app_models_Category [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Category
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">description</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">featured_image</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CloudinaryField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">slug</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">SlugField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  juice_app_models_Recipe [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Recipe
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>author</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>category</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">created_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">description</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">featured_image</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CloudinaryField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">ingredients</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">instructions</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">slug</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">SlugField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">status</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">IntegerField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">title</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">updated_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  juice_app_models_Comment [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    Comment
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>author</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>recipe</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">approved</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">BooleanField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">body</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">created_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">updated_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  about_models_About [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    About
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">about_img</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CloudinaryField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">content</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">title</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Sans">updated_on</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Sans">DateTimeField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  about_models_CollaborateRequest [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Sans" COLOR="white" POINT-SIZE="10"><B>
+    CollaborateRequest
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">about_img</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CloudinaryField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">email</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">EmailField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">message</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">TextField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Sans">read</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Sans">BooleanField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+
+
+
+  // Relations
+
+  django_contrib_admin_models_LogEntry -> django_contrib_auth_models_User
+  [label=" user (logentry)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  django_contrib_admin_models_LogEntry -> django_contrib_contenttypes_models_ContentType
+  [label=" content_type (logentry)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  django_contrib_auth_base_user_AbstractBaseUser [label=<
+  <TABLE BGCOLOR="white" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+  <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="#1b563f">
+  <FONT FACE="Sans" POINT-SIZE="12" COLOR="white">AbstractBaseUser</FONT>
+  </TD></TR>
+  </TABLE>
+  >]
+  django_contrib_auth_models_AbstractUser -> django_contrib_auth_base_user_AbstractBaseUser
+  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+  django_contrib_auth_models_PermissionsMixin [label=<
+  <TABLE BGCOLOR="white" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+  <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="#1b563f">
+  <FONT FACE="Sans" POINT-SIZE="12" COLOR="white">PermissionsMixin</FONT>
+  </TD></TR>
+  </TABLE>
+  >]
+  django_contrib_auth_models_AbstractUser -> django_contrib_auth_models_PermissionsMixin
+  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+
+  django_contrib_auth_models_Permission -> django_contrib_contenttypes_models_ContentType
+  [label=" content_type (permission)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  django_contrib_auth_models_Group -> django_contrib_auth_models_Permission
+  [label=" permissions (group)"] [arrowhead=dot arrowtail=dot, dir=both];
+
+  django_contrib_auth_models_User -> django_contrib_auth_models_Group
+  [label=" groups (user)"] [arrowhead=dot arrowtail=dot, dir=both];
+
+  django_contrib_auth_models_User -> django_contrib_auth_models_Permission
+  [label=" user_permissions (user)"] [arrowhead=dot arrowtail=dot, dir=both];
+
+  django_contrib_auth_models_User -> django_contrib_auth_models_AbstractUser
+  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+
+
+
+  django_contrib_sessions_models_Session -> django_contrib_sessions_base_session_AbstractBaseSession
+  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+
+
+
+  allauth_account_models_EmailAddress -> django_contrib_auth_models_User
+  [label=" user (emailaddress)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  allauth_account_models_EmailConfirmation -> allauth_account_models_EmailAddress
+  [label=" email_address (emailconfirmation)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+
+  allauth_socialaccount_models_SocialApp -> django_contrib_sites_models_Site
+  [label=" sites (socialapp)"] [arrowhead=dot arrowtail=dot, dir=both];
+
+  allauth_socialaccount_models_SocialAccount -> django_contrib_auth_models_User
+  [label=" user (socialaccount)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  allauth_socialaccount_models_SocialToken -> allauth_socialaccount_models_SocialApp
+  [label=" app (socialtoken)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  allauth_socialaccount_models_SocialToken -> allauth_socialaccount_models_SocialAccount
+  [label=" account (socialtoken)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+
+  django_summernote_models_Attachment -> django_summernote_models_AbstractAttachment
+  [label=" abstract\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+
+
+  juice_app_models_Recipe -> django_contrib_auth_models_User
+  [label=" author (recipes)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  juice_app_models_Recipe -> juice_app_models_Category
+  [label=" category (recipes)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  juice_app_models_Comment -> juice_app_models_Recipe
+  [label=" recipe (comments)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  juice_app_models_Comment -> django_contrib_auth_models_User
+  [label=" author (commenter)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+
+
+}

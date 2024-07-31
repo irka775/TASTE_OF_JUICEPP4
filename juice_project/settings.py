@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
+from django.contrib.messages import constants as message_constants
 import os
+from pathlib import Path
 import dj_database_url
 from django.contrib.messages import constants as messages
 import django_heroku
@@ -36,6 +37,7 @@ DEBUG = os.getenv("DEVELOPMENT")
 ALLOWED_HOSTS = [
     "127.0.0.1",
     ".herokuapp.com",
+   "amiresponsive.blogspot.com",
 ]
 
 # Application definition
@@ -59,7 +61,7 @@ INSTALLED_APPS = [
     "django_resized",
     "juice_app",
     "about",
-    # "testapp"
+    'django_extensions',
 ]
 
 SITE_ID = 1
@@ -88,7 +90,6 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-from django.contrib.messages import constants as message_constants
 
 MESSAGE_TAGS = {
     message_constants.DEBUG: 'debug',
@@ -132,7 +133,7 @@ DATABASES = {
 # Cloudinary settings
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
 
-CSRF_TRUSTED_ORIGINS = ["https://*.codeanyapp.com", "https://*.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.codeanyapp.com", "https://*.herokuapp.com","https://amiresponsive.blogspot.com",]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
