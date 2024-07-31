@@ -37,7 +37,7 @@ DEBUG = os.getenv("DEVELOPMENT")
 ALLOWED_HOSTS = [
     "127.0.0.1",
     ".herokuapp.com",
-   "amiresponsive.blogspot.com",
+    "amiresponsive.blogspot.com",
 ]
 
 # Application definition
