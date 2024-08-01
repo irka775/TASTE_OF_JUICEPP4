@@ -7,7 +7,6 @@ from .forms import CommentForm, RecipeForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
-from juice_project.settings import DEBUG
 
 
 def ajax_search(request):
@@ -165,7 +164,6 @@ def recipe_list(request):
             "page_obj": page_obj,
             "recipe_list": recipes,
             "categories": categories,
-            "DEBUG": DEBUG,
         },
     )
 
