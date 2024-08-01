@@ -9,45 +9,52 @@ and well-being through fresh, natural ingredients.
 ### [Link to Live Website](https://taste-of-juice-pp4-4cc0435c4efc.herokuapp.com/)
 
 ---
+# Table of Contents
 
-# Table Of Contents
+1. [Taste of Juice](#taste-of-juice)
+2. [Link to Live Website](#link-to-live-website)
+3. [Site & User Goals](#site--user-goals)
+   - [Site Goals](#site-goals)
+   - [User Goals](#user-goals)
+4. [User Experience Design](#user-experience-design)
+   - [Site Goals](#site-goals-1)
+   - [Agile Planning](#agile-planning)
+5. [The Strategy Plane](#the-strategy-plane)
+   - [Site Goals](#site-goals-2)
+   - [Agile Planning](#agile-planning-1)
+6. [The Structure Plane](#the-structure-plane)
+   - [Features](#features)
+   - [Existing Features](#existing-features)
+7. [The Skeleton Plane](#the-skeleton-plane)
+   - [Information Architecture](#1-information-architecture)
+   - [Content Structure](#2-content-structure)
+   - [Navigation Design](#3-navigation-design)
+   - [Wireframes](#4-wireframes)
+   - [Development Framework](#5-development-framework)
+   - [Database Design](#database-design)
+   - [Typography](#typography)
+   - [Images](#images)
+8. [Tools and Technologies](#tools-and-technologies)
+9. [Testing](#testing)
+   - [Responsiveness](#responsiveness)
+   - [Lighthouse](#lighthouse)
+   - [Validator Testing](#validator-testing)
+   - [HTML Validation](#html-validation)
+   - [CSS Validation](#css-validation)
+   - [JavaScript Validation](#javascript-validation)
+   - [Python Validation](#python-validation)
+   - [Manual Testing](#manual-testing)
+   - [Automated Testing](#automated-testing)
+10. [Bugs](#bugs)
+    - [Unfixed Bugs](#unfixed-bugs)
+11. [Deployment](#deployment)
+    - [Version Control](#version-control)
+    - [Deployment in Heroku](#deployment-in-heroku)
+    - [Cloning the Repository](#cloning-the-repository)
+    - [Forking](#forking)
+12. [Credits](#credits)
+13. [Acknowledgements](#acknowledgements)
 
-- [Developer's Task Manager](#developers-task-manager)
-- [Table Of Contents](#table-of-contents)
-- [User Experience](#user-experience)
-- [Site /& User Goals](#site--user-goals)
-  - [Site Goals](#site-goals)
-  - [User Goals](#user-goals)
-- [User Stories](#user-stories)
-  - [1. Adding a Task](#1-adding-a-task)
-  - [2. Modifying a Task](#2-modifying-a-task)
-  - [3. Deleting a Task](#3-deleting-a-task)
-  - [4. Viewing All Tasks](#4-viewing-all-tasks)
-  - [5. Persistent Storage](#5-persistent-storage)
-  - [6. Real-Time Feedback](#6-real-time-feedback)
-  - [7. Secure Data Handling](#7-secure-data-handling)
-- [Development Planes](#development-planes)
-- [Strategy](#strategy)
-- [Scope](#scope)
-- [Functional Specifications](#functional-specifications)
-- [Structure](#structure)
-- [Skeleton](#skeleton)
-- [Flow Logic](#flow-logic)
-- [Flow Logic Diagram](#flow-logic-diagram)
-- [Surface and Features](#surface-and-features)
-- [Technologies Used](#technologies-used)
-- [Bugs /& Issues](#bugs--issues)
-- [Libraries Imported](#libraries-imported)
-- [Testing](#testing)
-- [Manual Testing](#manual-testing)
-  - [1. Adding a Task Test](#1-adding-a-task-test)
-  - [2. Modifying a Task Test](#2-modifying-a-task-test)
-  - [3. Deleting a Task Test](#3-deleting-a-task-test)
-  - [4. Showing All Tasks Test](#4-showing-all-tasks-test)
-  - [5. Persistent StorageTest](#5-persistent-storagetest)
-- [Automated Testing](#automated-testing)
-- [Pep-8 Testing](#pep-8-testing)
-- [Credits & Acknowledgements](#credits--acknowledgements)
 
 ## Site & User Goals
 
@@ -255,7 +262,7 @@ I employed the Agile methodology and utilized a GitHub project board to organize
 
 ![add-recipe-page-view](static/documentations/add_juice_page.PNG)
 
-- CRUD Functionality - The Add Juice page link is only visible and accessible to logged-in users. On clicking the Add Juice link, authorised users are directed to the create recipe form. The form field marked as /\* are mandatory to be filled. If user tries to submit the form without entering all required field, messages are displayed below relevant fields that are left empty.
+- CRUD Functionality - The Add Juice page link is only visible and accessible to logged-in users. On clicking the Add Juice link, authorised users are directed to the create recipe form. The form field marked as //\* are mandatory to be filled. If user tries to submit the form without entering all required field, messages are displayed below relevant fields that are left empty.
 - A default image is incorporated so that if the user is unable to provide any recipe image, the default image will act as one.
 - All the fields in the form except the Recipe Image field are required. The form is not deemed to be valid in case any of the fields are left empty.
 - Users can share their recipes with others using the add recipe form. On submitting the recipe, user is displayed with a success message and directed to that Recipe detail page.
@@ -528,7 +535,7 @@ These tools and technologies together provide a robust foundation for the projec
 
   <summary>Home Page - Desktop</summary>
     
-![home-page-lighthouse-desktop](static\documentations\test_lighthouse.PNG)
+![home-page-lighthouse-desktop](static/documentations/test_lighthouse.PNG)
 
   </details>
 
@@ -547,46 +554,42 @@ In order to check HTML code in dynamic website:
 
 #### Test First HTML shows eror
 
-![home-page-html-validation](static\documentations\test_HTML.PNG)
+![home-page-html-validation](static/documentations/test_HTML.PNG)
 
 #### Test afer fixed the bugs
 
-![recipes-page-html-validation](static\documentations\test_bug_fixed_html.PNG)
-
-
+![recipes-page-html-validation](static/documentations/test_bug_fixed_html.PNG)
 
 ### CSS Validation
 
 No errors were found when passing through the official Jigsaw W3 Validator
 
-![css-validation-check](static\documentations\test_css.PNG)
+![css-validation-check](static/documentations/test_css.PNG)
 
 ### JavaScript Validation
 
 No errors were found when passing through the [jshint validator](https://jshint.com/)
 
-![javascript-validation-check](static\documentations\test_js.PNG)
+![javascript-validation-check](static/documentations/test_js.PNG)
 
 ### Python Validation
 
-Some errors were found when passing  file through [CI Python Linter](https://pep8ci.herokuapp.com/)
+Some errors were found when passing file through [CI Python Linter](https://pep8ci.herokuapp.com/)
 
+![python-validation-check-errors](static/documentations/test_python_errors.PNG)
 
-![python-validation-check-errors](static\documentations\test_python_errors.PNG)
+After fixing errors were found when passing file through [CI Python Linter](https://pep8ci.herokuapp.com/)
 
-After fixing errors were found when passing  file through [CI Python Linter](https://pep8ci.herokuapp.com/)
-
-![python-validation-check](static\documentations\test_python_no_errors.PNG)
-
+![python-validation-check](static/documentations/test_python_no_errors.PNG)
 
 ## Manual Testing
 
 ### Functional Testing
-![CSS-check](static\documentations\test_css.PNG)
-![DEBUG_VAR-check](static\documentations\test_debug_var.PNG)
-![HTML-check](static\documentations\test_debug_html.PNG)
-![MODAL-check](static\documentations\test_comment_delete_message.PNG)
 
+![CSS-check](static/documentations/test_css.PNG)
+![DEBUG_VAR-check](static/documentations/test_debug_var.PNG)
+![HTML-check](static/documentations/test_debug_html.PNG)
+![MODAL-check](static/documentations/test_comment_delete_message.PNG)
 
 ## Automated Testing
 
@@ -597,24 +600,27 @@ No unit testing performed at this stage.
 ## Bugs
 
 - **Installing both Whitenoise and Cloudinary resulted in conflict for serving static files and as a result, the deployment failed.**
+
   - **Fix:** The order of apps in `INSTALLED_APPS` in `settings.py` for Cloudinary was incorrect. The apps were reordered correctly, Whitenoise and related static files configuration were removed, and static files are now served through Cloudinary.
 
 - **Duplicate column errors during migration:**
+
   - **Issue:** Running migrations after making changes to the database schema resulted in `DuplicateColumn` errors.
   - **Fix:** Deleted existing migrations and the database, then recreated them from scratch to ensure consistency.
 
 - **Foreign key constraint violation when loading fixtures:**
+
   - **Issue:** Loading fixtures with recipes failed due to missing associated users in the `auth_user` table.
   - **Fix:** Created or loaded the required user records before loading the fixtures.
 
 - **About Page content and design need improvement:**
+
   - **Issue:** The content and design of the About Page do not effectively communicate the purpose and story of the project.
   - **Fix:** Revise the content and improve the design to create a more engaging About Page.
 
 - **Color palette could be more cohesive:**
   - **Issue:** The current color palette lacks visual appeal and consistency.
   - **Fix:** Consider redesigning the color scheme to improve the overall aesthetics of the website.
-
 
 ### Unfixed Bugs
 
@@ -648,6 +654,7 @@ No unit testing performed at this stage.
     - PORT and value: 8000
     - CLOUDINARY_URL: 'API key to your cloudinary account'
     - DATABASE_URL : 'URL from your database account'
+    - DEVELOPMENT : 'False'
     - SECRET_KEY: 'Generate your own secret key'
   - Scroll down to 'Buildpacks' section
   - Click 'Add buildpack'
@@ -688,22 +695,17 @@ For more details on how to clone the repository in order to create a copy for ow
 
 ## Credits
 
-- All images used on the website are sourced from [Pexels](https://www.pexels.com/), [Pixabay](https://pixabay.com/) and [Unsplash.](https://unsplash.com/)
-- All the recipes on the website are taken from [BBC Good Food.](https://www.bbcgoodfood.com/)
+- All images used on the website are sourced from [Pixabay](https://pixabay.com/)
+- All the recipes on this website are sourced from [an unchecked source](#) and are intended for educational and example purposes only. Please ensure that you review and verify these recipes before using them for personal use.
+
 - Code Institute's "I Think Therefore I Blog" walkthrough project was referred throughout during development.
 - [Django Documentation](https://docs.djangoproject.com/en/4.2/) helped me in understanding the class based views and search functionality.
-- Ability to create and update recipe post while getting a success message displayed is achieved by following instructions in Stack Overflow article. [Create/Update Recipe](https://stackoverflow.com/questions/67366138/django-display-message-after-creating-a-post)
 - [Recipe Tutorial](https://www.youtube.com/watch?v=ZCPhzoK_bg4&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=3) helped me to get started with the files setup and base structure.
-- The code for deleting recipe is referred from this [Recipe Tutorial.](https://www.youtube.com/watch?v=nFa3lC105dM&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=13)
-- [Readme](https://github.com/Gareth-McGirr/Portfolio-Project-4-SizzleAndSteak/tree/main?tab=readme-ov-file#heroku-deployment) used for basic readme structure.
-- [Blog Tutorial](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) helped me in creating my models and understanding the CRUD functionality.
-- The PositiveInteger validation for cooking time, prep time and servings was referred from this [article.](https://stackoverflow.com/questions/2248617/0-value-in-django-positiveintegerfield)
-- The search functionality in django was studied from this [tutorial](https://learndjango.com/tutorials/django-search-tutorial) and modified according to the project requirements.
+
+- [Readme](https://github.com/gayatrig19/tasty-tales-website-pp4/blob/main/README.md) used for basic readme structure.
 
 ## Acknowledgements
 
-- I would like to express my gratitude to my mentor, Ronan McClelland, for his unwavering guidance, moral support, encouragement, and invaluable suggestions throughout the project. The project review sessions with my mentor, along with his solutions to my questions and the study materials he provided, were instrumental in the success of this project.
-- I would like to thank my husband, Siddharth Dighe, for his constant support and for reviewing my work actively, getting involved in the discussions for website ideas and design content.
-- I am also deeply thankful to my family and friends for their willingness to test the app and provide
-  valuable feedback.
+- I would like to thank my husband, Mihail Barbascumpa, for his constant support and for reviewing my work actively, getting involved in the discussions for website ideas and design content.
+- I am also deeply thankful to cohort facilitator Laura ,tutors, student care... for their help
 - I am grateful to the Code Institute's Tutor support for solving all my doubts.
