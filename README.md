@@ -659,7 +659,6 @@ No unit testing performed at this stage.
   - Scroll down to 'Buildpacks' section
   - Click 'Add buildpack'
   - Add Python as first dependency and select 'Save changes'
-  - Add node.js as a second dependency and save again (This is settings section done)
   - Select 'Deploy' tab at the top
   - Select 'Github' from 'Deployment method'
   - type the name of how you called project in Github and click 'search'
