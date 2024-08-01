@@ -20,7 +20,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv("DEVELOPMENT")
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -109,7 +109,16 @@ DATABASES = {
     )
 }
 
-    
+# Test Database Configuration
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_database_name',  # Numele bazei de date de testare
+        'USER': 'your_username',        # Utilizatorul PostgreSQL
+        'PASSWORD': 'your_password',    # Parola utilizatorului
+        'HOST': 'localhost',            # Gazda, de obicei localhost
+        'PORT': '5432',                 # Portul PostgreSQL, de obicei 5432
+    }
 
 # Cloudinary settings
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
