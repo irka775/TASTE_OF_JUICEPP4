@@ -25,7 +25,6 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = [
             "title",
-            "slug",
             "category",
             "featured_image",
             "description",
@@ -35,6 +34,8 @@ class RecipeForm(forms.ModelForm):
         ]
         widgets = {
             "title": forms.TextInput
+            (attrs={"class": "form-control form-title"}),       
+            "slug": forms.TextInput
             (attrs={"class": "form-control form-title"}),
             "featured_image": forms.ClearableFileInput
             (attrs={"class": "form-control-file form-featured-image"}),
