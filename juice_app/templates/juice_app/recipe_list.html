@@ -42,7 +42,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in recipe.featured_image.url %}
                                 <!-- Display placeholder image if no featured image is available -->
-                                <img class="card-img-top recipe-image" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                <img class="card-img-top recipe-image" src="{% static 'images\default.webp' %}" alt="placeholder image">
                                 {% else %}
                                 <!-- Display the recipe's featured image -->
                                 <img class="card-img-top recipe-image" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
@@ -54,7 +54,6 @@
                                 <div class="image-flash">
                                     <p class="author">Category: {{ recipe.category.name }}</p>
                                     <p class="author">DEBUG: {{ DEBUG }}</p>
-
                                 </div>
                             </div>
 
@@ -151,7 +150,6 @@
 </div>
 
 {% block extras %}
-<script src="{% static 'js/recipe.js' %}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var modals = document.querySelectorAll('.modal-auto-clear');

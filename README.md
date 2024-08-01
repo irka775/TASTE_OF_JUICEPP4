@@ -4,60 +4,127 @@
 This platform allows users to discover, create, and share delicious juice recipes, promoting health
 and well-being through fresh, natural ingredients.
 
-![Taste-juice-mockup-image](static\images\main_photo.webp)
+![Taste-juice-mockup-image](static/images/main_photo.webp)
 
 ### [Link to Live Website](https://taste-of-juice-pp4-4cc0435c4efc.herokuapp.com/)
 
 ---
 
-## Table of Contents
+# Table Of Contents
 
-- [Taste juice](#Taste-juice)
-  - [Table of Contents](#table-of-contents)
-- [User Experience Design](#user-experience-design)
-  - [The Strategy Plane](#the-strategy-plane)
+- [Developer's Task Manager](#developers-task-manager)
+- [Table Of Contents](#table-of-contents)
+- [User Experience](#user-experience)
+- [Site /& User Goals](#site--user-goals)
   - [Site Goals](#site-goals)
-  - [Agile planning](#agile-planning)
-    - [Milestone](#milestone)
-    - [User Stories](#user-stories)
-  - [The Structure Plane](#the-structure-plane)
-    - [Features](#features)
-    - [Features Left to Implement](#features-left-to-implement)
-  - [The Skeleton Plane](#the-skeleton-plane)
-  - [Wireframes](#wireframes)
-    - [Desktop Wireframes](#desktop-wireframes)
-    - [Mobile Wireframes](#mobile-wireframes)
-  - [Database Design](#database-design)
-  - [The Surface Plane](#the-surface-plane)
-  - [Design](#design)
-- [Technologies](#technologies)
-  - [Tools and Technologies](#tools-and-technologies)
-  - [Imports](#imports)
-  - [Python Packages](#internal-packages)
-  - [External Packages](#external-packages)
+  - [User Goals](#user-goals)
+- [User Stories](#user-stories)
+  - [1. Adding a Task](#1-adding-a-task)
+  - [2. Modifying a Task](#2-modifying-a-task)
+  - [3. Deleting a Task](#3-deleting-a-task)
+  - [4. Viewing All Tasks](#4-viewing-all-tasks)
+  - [5. Persistent Storage](#5-persistent-storage)
+  - [6. Real-Time Feedback](#6-real-time-feedback)
+  - [7. Secure Data Handling](#7-secure-data-handling)
+- [Development Planes](#development-planes)
+- [Strategy](#strategy)
+- [Scope](#scope)
+- [Functional Specifications](#functional-specifications)
+- [Structure](#structure)
+- [Skeleton](#skeleton)
+- [Flow Logic](#flow-logic)
+- [Flow Logic Diagram](#flow-logic-diagram)
+- [Surface and Features](#surface-and-features)
+- [Technologies Used](#technologies-used)
+- [Bugs /& Issues](#bugs--issues)
+- [Libraries Imported](#libraries-imported)
 - [Testing](#testing)
-- [Responsiveness](#responsiveness)
-- [Accessibility](#accessibility)
-- [Lighthouse](#lighthouse)
-- [Validator Testing](#validator-testing)
-  - [HTML Validation](#html-validation)
-  - [CSS Validation](#css-validation)
-  - [JavaScript Validation](#javascript-validation)
-  - [Python Validation](#python-validation)
 - [Manual Testing](#manual-testing)
-  - [Functional testing](#functional-testing)
-  - [Links and Buttons](#links-and-buttons)
-  - [Negative Testing](#neagtive-testing)
+  - [1. Adding a Task Test](#1-adding-a-task-test)
+  - [2. Modifying a Task Test](#2-modifying-a-task-test)
+  - [3. Deleting a Task Test](#3-deleting-a-task-test)
+  - [4. Showing All Tasks Test](#4-showing-all-tasks-test)
+  - [5. Persistent StorageTest](#5-persistent-storagetest)
 - [Automated Testing](#automated-testing)
-  - [Unit Tests](#unit-tests)
-- [Bugs](#bugs)
-- [Deployment](#deployment)
-  - [Version Control](#version-control)
-  - [Deployment In Heroku](#deployment-in-heroku)
-  - [Cloning the Repository](#cloning-the-repository)
-  - [Forking](#forking)
-- [Credits](#credits)
-- [Acknowledgements](#acknowledgements)
+- [Pep-8 Testing](#pep-8-testing)
+- [Credits & Acknowledgements](#credits--acknowledgements)
+
+## Site & User Goals
+
+This section outlines the primary goals for the "Taste of Juice" website and its users. The site is designed to facilitate the sharing, discovery, and interaction around juice recipes, providing a user-friendly platform for enthusiasts to connect and share their culinary creations.
+
+## Site Goals
+
+### Recipe Sharing
+
+- **Objective**: Provide a platform where users can create, edit, and share juice with an interested community.
+- **Details**:
+  - Users should be able to easily input their recipes, including ingredients, instructions, and images.
+  - Recipes can be edited or updated by the author at any time.
+  - Users can browse and view recipes submitted by others.
+
+### Recipe Categorization
+
+- **Objective**: Ensure a structured category system that allows users to find and organize recipes by Category (e.g., Herbal Juices,Citric Juices, Detox Juices, etc.).
+
+- **Details**:
+  - Implement a category system for recipes.
+  - Allow users to filter and search recipes based on categories and interactive search.
+
+### Social Interaction
+
+- **Objective**: Enable users to comment and provide feedback on recipes, fostering an active and engaged community.
+- **Details**:
+  - Allow users to leave comments and ratings on recipes.
+  - Implement a notification system to inform users of interactions on their recipes.
+  - Create a community section where users can discuss and share ideas.
+
+### User Account Management
+
+- **Objective**: Offer features for users to manage their accounts, including profile updates, tracking their own recipes, and managing interactions.
+- **Details**:
+  - Users should be able to register, log in, and manage their profiles.
+  - Each user can view and manage their submitted recipes.
+  - Users can track their interactions, such as comments and feedback received.
+
+### Mobile Responsiveness
+
+- **Objective**: Ensure the site is fully responsive and accessible on various devices, providing a seamless user experience across desktops, tablets, and smartphones.
+- **Details**:
+  - Implement a mobile-first design approach.
+  - Ensure all features are fully functional on mobile devices.
+  - Optimize loading times and usability for smaller screens.
+
+## User Goals
+
+### Discover and Explore Recipes
+
+- **Objective**: Easily browse and search for a variety of juice recipes.
+- **Details**:
+  - Users can explore a vast collection of recipes organized by categories.
+  - Implement a search function to find specific recipes or ingredients.
+
+### Create and Share Personal Recipes
+
+- **Objective**: Allow users to submit their own recipes, complete with ingredients, instructions, and images.
+- **Details**:
+  - Provide a user-friendly form for recipe submission.
+  - Allow users to upload images and customize their recipe pages.
+  - Enable users to edit and update their recipes as needed.
+
+### Interact with Other Users
+
+- **Objective**: Enable users to comment other users' recipes, facilitating interaction within the community.
+- **Details**:
+  - Users can leave comments.
+
+### Access Site on Multiple Devices
+
+- **Objective**: Ensure that users can access and use the site seamlessly across different devices, including desktops, tablets, and smartphones.
+- **Details**:
+  - The site should be fully responsive, providing a consistent experience across devices.
+  - Implement touch-friendly interfaces for mobile users.
+  - Optimize the site for quick loading times and minimal data usage on mobile networks.
 
 ## User Experience Design
 
@@ -95,7 +162,7 @@ I employed the Agile methodology and utilized a GitHub project board to organize
 
 <details><summary>Project Board</summary>
 
-![project board](static\documentations\user_stories_board.PNG)
+![project board](static/documentations/user_stories_board.PNG)
 
 </details>
 
@@ -125,129 +192,98 @@ I employed the Agile methodology and utilized a GitHub project board to organize
 
 ### Existing Features
 
-#### Navigation Menu
+#### Navigation Menu and Footer Section
 
-- As a developer, I need to create a navigation menu so that a website user can easily navigate through the site pages and content. **(User Story#4) (must have)**
-- As a User, I can navigate between pages easily, so that I can explore the website content without any chaos. **(User Story#22) (should have)**
+-As a developer I can create a navigation menu and footer section so that users can easily navigate through site pages and social media links on footer section.
 
 ##### Navigation bar for all users (desktop/mobile)
 
-![navigation-bar-view-desktop](documentation/docs_images/nav-bar-unauthorised-desktop.png)
+![navigation-bar-view-desktop](static/documentations/navitation.PNG)
 
-![navigation-bar-view-mobile](documentation/docs_images/nav-bar-unauthorised-mobile.png)
+![navigation-bar-view-mobile](static/documentations/nav_bar_mobile.png)
 
 ##### Navigation bar for only authorised users (desktop/mobile)
 
-![navigation-bar-view-authorised-desktop](documentation/docs_images/nav-bar-authorised-desktop.png)
+![navigation-bar-view-authorised-desktop](static/documentations/nav_bar_user.PNG)
 
-![navigation-bar-view-authorised-mobile](documentation/docs_images/nav-bar-authorised-mobile.png)
+![navigation-bar-view-authorised-mobile](static/documentations/nav_bar_user_mobile.PNG)
 
-- The navigation bar is shown on all pages based on the users logged-in(authentication) status and is responsive to all screen sizes. For smaller screen sizes the navigation bar appears as a hamburger menu and can be easily accessed. A success message is displayed when user is logged-in/ registered.
+![footer-section-view](static/documentations/footer.PNG)
+
+- The NAVIGATION BAR is shown on all pages based on the users logged-in(authentication) status and is responsive to all screen sizes. For smaller screen sizes the navigation bar appears as a hamburger menu and can be easily accessed. A success message is displayed when user is logged-in/ registered.
 - The design is kept clean and simple so that user can navigate between the pages easily without any confusion. The links are visible clearly both on large screen and smaller screen sizes.
 - The active link is marked for ease of accessibility so that the user knows the current page been visited.
 - The navigation menu includes:
   - Home Page - for all users
-  - Recipes Page - for all users
-  - Search Recipes Page - for all users
+  - Recipes - for all users
+  - Add Juice - for autorized users
   - Sign up Page - for unauthorised user's registration
   - Sign in Page - for users already registered
   - Logout Page - for authorised users
-  - Add Recipe Page - for authorised users
-  - My Drafts Page - for authorised users
+  - About - for all users
+- The FOOTER SECTION includes the information about the website: the developer of the website, the purpose (for educational purpose only), year developed and the developer's GitHub and LinkedIn links.
+- Similar to the navigation bar, the footer is displayed on every page of the website. It displays icon links to GitHub and LinkedIn accounts. These icon links can enable user to see more about my work through GitHub and learn more about me through LinkedIn. Both the links opens in new page.
 
 #### Home Page
 
-- As a developer, I need to create a home page so that the user can quickly understand what the recipe blog offers and navigate easily to find interesting recipes. **(User Story#21) (must have)**
+- As a developer, I need to create a home page so that the user can quickly understand what the recipe blog offers and navigate easily to find interesting recipes.
 
-##### Home Page for all users
+##### Home Page
 
-![home-page-view-unauthorised-users](documentation/docs_images/home-page-view-unauthorised.png)
-
-##### Home Page for authorised users
-
-![home-page-view-authorised-users](documentation/docs_images/home-page-view-authorised.png)
+![home-page-view-unauthorised-users](static/documentations/home_page.PNG)
 
 - The home page is designed such that it is inviting and conveys the user a clear message about the website and what the user can expect throughout the site journey. The background image showcases the essence of the recipe website. User is encouraged to sign up and explore through a quick, simple introduction about the recipe application.
 
-#### Footer
-
-- As a developer, I need to create a footer so that I can include social media links, contact links and relevant site information about the website. **(User Story#5) (must have)**
-
-![footer-section-view](documentation/docs_images/footer-page-view.png)
-
-- The footer section includes the information about the website: the developer of the website, the purpose (for educational purpose only), year developed and the developer's GitHub and LinkedIn links.
-- Similar to the navigation bar, the footer is displayed on every page of the website. It displays icon links to GitHub and LinkedIn accounts. These icon links can enable user to see more about my work through GitHub and learn more about me through LinkedIn. Both the links opens in new page.
-
 #### Sign-Up / Sign-In / Logout Pages
 
-- As a developer, I need to setup allauth so that users can have an option to register and sign-in to the website for exploring more features. **(User Story#6) (must have)**
+- As a developer I can settup allauth so that users will have capability to register ans sign in to website.
 
-- As a Site User I can register an account so that I can access publishing, commenting and like/unlike features. **(User Story#7) (must have)**
+![sign-up-page-view](static/documentations/register_page.PNG)
 
-- As a developer, I want to style the allauth authentication pages(signup, login and logout pages) so that they are visually consistent with the rest of the website and provide a seamless user experience. **(User Story#23) (should have)**
+![sign-in-page-view](static/documentations/login_page.PNG)
 
-![sign-up-page-view](documentation/docs_images/sign-up-page-view.png)
-
-![sign-in-page-view](documentation/docs_images/sign-in-page-view.png)
-
-![sign-out-page-view](documentation/docs_images/sign-out-page-view.png)
+![sign-out-page-view](static/documentations/logout_confirmation.PNG)
 
 - All the pages are accessible from navigation bar for large and small screen sizes.
 - User can easily access the sign-up / sign-in options to explore the website features completely.
 - A clear message is displayed on the pages for user to know whether he needs to sign-in or sign-up to explore the recipe website and to like, comment and post the recipes.
 - A success message is displayed to user based on his actions for sign-in, sign-up and sign-out.
 
-#### Add Recipe Page
+#### Add Juice Page and Edit Page
 
-- As a logged-in User, I can create/publish recipes so that I can share recipes that I find delicious with others. **(User Story#8) (must have)**
+-As a logged in user I can create and edit recipe so that I can share my recipe with others and edit the recipe details if necessary.
 
-![add-recipe-page-view](documentation/docs_images/add-recipe-page-view.png)
+![add-recipe-page-view](static/documentations/add_juice_page.PNG)
 
-- CRUD Functionality - The Add Recipe page link is only visible and accessible to logged-in users. On clicking the Add Recipe link, authorised users are directed to the create recipe form. The form field marked as \* are mandatory to be filled. If user tries to submit the form without entering all required field, messages are displayed below relevant fields that are left empty.
+- CRUD Functionality - The Add Juice page link is only visible and accessible to logged-in users. On clicking the Add Juice link, authorised users are directed to the create recipe form. The form field marked as /\* are mandatory to be filled. If user tries to submit the form without entering all required field, messages are displayed below relevant fields that are left empty.
 - A default image is incorporated so that if the user is unable to provide any recipe image, the default image will act as one.
-- All the fields in the form except the Recipe Image field are required. The form is not deemed to be valid in case any of the fields are left empty. User can either publish or save recipe as draft.
-- Users can share their recipes with others using the add recipe form. On submitting the recipe, user is displayed with a success message and directed to the Recipes page.
+- All the fields in the form except the Recipe Image field are required. The form is not deemed to be valid in case any of the fields are left empty.
+- Users can share their recipes with others using the add recipe form. On submitting the recipe, user is displayed with a success message and directed to that Recipe detail page.
 
-#### Edit Recipe
+![edit-recipe-button](static/documentations/edin_and delete_buttons.PNG)
 
-- As a logged-in User, I can edit the recipes that I have shared so that I can correct and update the recipe details if necessary. **(User Story#9) (must have)**
-
-![edit-recipe-button](documentation/docs_images/edit-button-view.png)
-
-![edit-recipe-page-view](documentation/docs_images/edit-recipe-page-view.png)
+![edit-recipe-page-view](static/documentations/edit_recipe_page.PNG)
 
 - CRUD Functionality - the feature of edit in recipe details page is only visible and accessible to the logged-in users and only if the user is the author of the recipe.
 - On clicking the edit button user is directed to the Edit recipe form/page where user can update / edit recipe for any changes and can either save as draft or publish it. On successful update of the recipe, user is displayed with success message and directed to Recipes Page.
-- If anauthorised user accesses the link the 403 error page will be displayed.
 
 #### Delete Recipe
 
-- As a logged-in User, I can delete my recipes so that they are no longer published on the site. **(User Story#10) (must have)**
+- As a logged in user I can delete my recipe post so that they are not will appear on the site.
 
-![delete-button-view](documentation/docs_images/delete-button-view.png)
+![delete-button-view](static/documentations/edin_and delete_buttons.PNG)
 
-![delete-recipe-page-view](documentation/docs_images/delete-recipe-page-view.png)
+![delete-recipe-page-view](static/documentations/delete_recipe.PNG)
 
 - CRUD Functionality - the feature of delete in recipe details page is only visible and accessible to the logged-in users and only if the user is the author of the recipe.
 - User is directed to confirm delete page where user can either delete the recipe or cancel.
 - The recipe is permanently deleted if delete is confirmed and a success message is diplayed to user else user will be taken back to recipe details page if cancelled.
-- If anauthorised user accesses the link the 403 error page will be displayed.
 
 #### Recipe Details
 
-- As a Site User, I can view and read the detailed recipes shared/published by others so that I can get some inspiration. **(User Story#11) (must have)**
+-As a site user I can view and read recipes created by other users so that I will enjoy a website.
 
-##### Recipe Details View for Unauthorised Users
-
-![recipe-details-page-view](documentation/docs_images/recipe-details-view.png)
-
-##### Recipe Details View for Logged-in Users
-
-![recipe-details-page-view-authorised-users](documentation/docs_images/recipe-details-recipe-author.png)
-
-##### Recipe Details View for Logged-in User and author of the recipe
-
-![recipe-details-page-view-recipe-author](documentation/docs_images/recipe-details-view-user.png)
+![recipe-details-page-view](static/documentations/recipe_details.PNG)
 
 - User can view a detailed recipe on this page along with number of comments, number of likes and the all recipe information.
 - The edit and delete buttons are visible and accessible only to the logged-in user as author of the recipe.
@@ -256,360 +292,206 @@ I employed the Agile methodology and utilized a GitHub project board to organize
 
 #### Recipe Pagination (Recipes Page)
 
-- As a Site User, I can view a paginated list of recipe posts so that I can select which recipes I want to view. **(User Story#12) (should have)**
+- As a site user I can view a pagination list of recipe posts so that I can select recipe.
 
-![recipe-page-list-view](documentation/docs_images/recipe-page-lists-view.png)
-
-![recipe-page-next-button](documentation/docs_images/recipe-pagination-next-page.png)
-
-![recipe-page-prev-button](documentation/docs_images/recipation-pagination-prev-page.png)
+![recipe-page-list-view](static/documentations/pagination.PNG)
 
 - This feature allows recipes to be paginated by 6 recipes per page, given more than 2 pages the next and prev buttons appear adjacent to each other.
-- The recipe list page is kept simple so that it is not overcrowded and user can find it easy to navigate between the pages.
 - On clicking the View Recipe button user is taken to recipe details page to view complete recipe information.
-
-#### My Drafts Page
-
-- As a logged-in User, I can go to a page to view only my recipes so that I can easily access them if needed.
-  **(User Story#13) (should have)**
-
-- **Note:** The user story is partially complete. User can only view the recipes saved as draft in my drafts page for now. User can update the draft recipe from my drafts page to either publish or save it for later.
-- This page is only accessible and visible to logged-in users.
-- The paginated list of recipe drafts is displayed with 6 recipes per page (if present). With this feature user can create recipe and save for later as draft for changes or to publish later.
-- User can also make his published recipes draft for any changes. This feature allows a flexibility for user to share recipes and manage them.
-
-![my-drafts-recipe-view](documentation/docs_images/my-drafts-page-view.png)
 
 #### Search Recipes Page
 
-- As a Site User, I can search recipes so that I can only view recipes I am interested in. **(User Story#14) (could have)**
+- As a Site User, I can search recipes so that I can only view recipes I am interested in.
 
-![search-recipes-page-view](documentation/docs_images/search-recipes-page-view.png)
+NOTE----- I did not include that in my user story, I have been created that after to make more interactive my websait. From the start did not been expected to be in a project.
 
-![search-results-page-view](documentation/docs_images/search-results-page-view.png)
+![search-recipes-page-view](static/documentations/interactive_searching_features.PNG)
 
-![search-not-found-page-view](documentation/docs_images/search-not-found-page-view.png)
-
-- The search recipes page allows users to search recipes by title, keyword and cuisines. This page is accessible throughout the website and to all users.
-- If the user search results are not found, a message for refining search is provided. Also user is encouraged to share own recipes or view all recipes.
-- If search query is not provided by user, the page is loaded with message to search bu recipe title, keyword and cuisines.
+- The search recipes page allows users to search recipes by title, keyword . This page is accessible throughout the website and to all users.
+  .
 
 #### Comment Section
 
-- As a Site User, I can leave comments on recipes so that I can interact with others/share my opinion. **(User Story#15) (should have)**
+-As a site user I can leave a comment for recipe post so that I can cooperate with oters users.
 
-- As a Site User, I can view comments on an individual recipe post so that I can read the conversation. **(User Story#16) (should have)**
+-As a site user I can view comments on a recipe post so that I can read the conversation.
 
-##### Comments Section for unauthorised Users
+![comment-view-unauthorised-user](static/documentations/test_comment.PNG)
 
-![comment-view-unauthorised-user](documentation/docs_images/comments-section-unauthorised.png)
-
-##### Comments Section for unauthorised Users
-
-![comment-view-authorised-user](documentation/docs_images/comments-section-authorised.png)
-
-![total-number-of-comments-view](documentation/docs_images/total-comments-view.png)
+![comment-view-authorised-user](static/documentations/test_comment_delete_message.PNG)
 
 - This feature allows user to comment on recipes posted by others.
-- If the user is not logged-in, user will only be displayed with the comments made by others on the recipes and a message to login to comment and like the recipe with sign-in link. When user is logged-in with the link, he is taken back to same recipe to add comment.
-- Authorised users are displayed with the comment box to comment on the recipe, upon comment submission a success message is displayed with a comment awaiting approval information.
+- If the user is not logged-in, user will only be displayed with the comments made by others on the recipes and a message to login to comment and like the recipe with sign-in link.
+- Authorised users are displayed with the comment box to comment on the recipe, upon comment submission a success message is displayed .
 - The comments from other users on the recipe and total number of comments on the recipe is visible to all users regardless of their login status.
-- If recipe has no comments, then a short messsage 'No comments yet' will be displayed.
-
-#### Like / Unlike Recipes
-
-- As a logged-in User, I can like/unlike others' recipes so that I can interact with the content. **(User Story#17) (should have)**
-
-![liked-recipe-view](documentation/docs_images/liked-recipe-view.png)
-![unliked-recipe-view](documentation/docs_images/unliked-recipe-view.png)
-
-- The like / unlike feature allows logged-in user to like or unlike the recipes.
-- If unauthorised user clicks the hollow heart icon, no action / effect will be seen on the icon. A simple message is diplayed for user below the recipe details to know that they needs to be logged-in to comment or like the recipe.
-- Authorised user - likes the recipes (if didn't previously liked the recipe), hollow heart icon will be displayed - if clicked the icon will change to solid red color and the number of likes will increase by one.
-- Authorised user - unlikes the recipe (if previously liked the recipe) , the solid red heart icon will be shown - if clicked the icon will chnage to hollow ones and the number of likes will be decreased by one.
 
 #### Admin Functionality
 
-- As a developer, I need to create a superuser so that I can manage the website efficiently and ensure the quality and organization of content on the website. **(User Story#24) (must have)**
-- As a Site Admin I can create, read, update and delete recipe posts so that I can manage my recipe blog content. **(User Story#25) (must have)**
-- As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments. **(User Story#26) (must have)**
+- As a developer, I need to create a superuser so that I can manage the website efficiently and ensure the quality and organization of content on the website.
 
-![admin-functionality-view](documentation/docs_images/admin-functions-view.png)
+![admin-functionality-view](static/documentations/admin_panel.PNG)
 
-- The most important task for website to function was to create a superuser, to manage the recipe post functionality and the website entirely.
 - The admin can ensure the quality and organization of the content on the webite.
 - When the comment is made by any user on the recipe, the comment awaiting approval message is displayed to user. The comment is only displayed if it approved by admin.
-- The admin panel helps the administrator to have control over the website to function seamlessely and keep the website content meaningful and organized.
 
 #### Feedback on user actions
 
-- As a Site User, I can get corresponding feedback after taking an action so that I know whether my actions were successfully run or not. **(User Story#18) (must have)**
+- As a Site User, I can get corresponding feedback after taking an action so that I know whether my actions were successfully run or not. this is some of them:
 
-![user-signin-success-message](documentation/docs_images/user-signin-message.png)
+![delete-message-confirmation](static/documentations/delete_message_confirmation.PNG)
 
-![user-signout-success-message](documentation/docs_images/user-signout-message.png)
+![comment-delete-message](static/documentations/test_comment_delete_message.PNG)
+
+![logout-confirmation](static/documentations/logout_confirmation.PNG)
 
 - This feature informs the user if the action taken has been successful so that user can know the outcome of every action throughout while navigating the website.
-- Message will be displayed when :
-  - User Sign In / Sign Up / Logout
-  - User posted a recipe
-  - User edited the recipe
-  - User deleted the recipe
-  - User comments on a recipe
 
-#### Error Pages
+#### Create filter categories feature
 
-- As a User, I want to be directed to a 403 error page when attempting to access content or functionality that I am not authorized to view, so that I am aware of my access limitations and can take appropriate action.
-  **(User Story#27) (must have)**
+- This feature is not included in user story. Hovever this feature is designed to improve user experience by enabling users to quickly find the content that is most relevant to their interests.
 
-- As a User, I want to be directed to a custom 404 page when I navigate to a broken link or URL that does not exist, so that I am informed that the page I am looking for is not available and can be directed to other relevant sections of the website. **(User Story#28) (should have)**
+![filter-by-categories](static/documentations/filter_by_categories_features.png)
 
-- As a user, I am notified in case of an internal error so that I can understand what went wrong and how to proceed. **(User Story#29) (nice to have)**
-
-![error-403-page](documentation/docs_images/error-403-page.png)
-
-![error-404-page](documentation/docs_images/error-404-page.png)
-
-![error-500-page](documentation/docs_images/error-500-page.png)
-
-- The custom error pages are displayed if user encounters an error while accessing unauthorised link(access denied), user navigates to a page not present(page not found), or if there is internal error while rendering the user requested resource.
-- This feature communicates to the user about what went wrong and gives option to go back to the home page. This gives user an option to navigate the website again without leaving it.
-- The message displayed for each of the error is user-friendly and gives user an easy to access option to go back to home page through providing the home page link.
+- The "Filter Categories" feature allows users to easily narrow down content by selecting one or more categories from a list. This helps users quickly find the specific content they're interested in by dynamically updating the displayed results based on their selected filters. Users can also clear all filters to reset the view to show all available content. The feature is designed to be responsive, user-friendly, and accessible across all devices.
 
 #### Initial Project Setup / Project Documentation / Final Project Deployment
 
 All the user stories are completed for project setup, project documentation and final project deployment
 
-- As a developer, I need to set up the recipe blog project with all the necessary components and
-  configurations so that I can ensure a smooth development and deployment process. **(User Story#1) (must have)**
-
-  - Initialize and setup a GitHub repository with a README file using CI Gitpod template.
-  - Install the latest version of Django.
-  - Create a new Django project.
-  - Add main app.
-  - Verify that the project runs without errors using the Django development server.
-  - Add a requirements.txt file listing all project dependencies.
-  - Add env.py file to store sensitive information.
-  - Add Procfile
-  - Implement a proper media storage configuration for user-uploaded images. - image database: Cloudinary
-  - Configure the project to use a ElephantSQL database.
-  - Update the settings.py file to notify Django of the installed supporting libraries .
-  - Deploy project to Heroku to test deployment is successful.
-
-- As a developer, I need to create a base.html file so that I can have a basic structure of the page for the project. **(User Story#2) (must have)**
-- As a developer, I need to add static files and media so that I can build the website to be user friendly, interesting and responsive to all screen sizes. **(User Story#3) (must have)**
-- As a developer, I need to create readme.md file so that the project is documented in detail. **(User Story#19) (must have)**
-- As a developer, I need to make sure the project is deployed to heroku so that everything works and looks as expected. **(User Story#20) (must have)**
+- As a software developer I can set up the juice blog project with all configurations and components so that I can ensure a good development and deployment process of this project.
+- As a developer I can create a base.html file so that will have initial structure of page for a project.
+- As a developer I can add static files and media so that a website will look user friendly,fascinating and interesting.Will be responsive to all screen sizes.
+- As a developer I can create readme.md file so that project will be documented in details.
+- As a developer I can be sure the project is deployed to heroku so that everything works and looks good.
 
 ### Features left to implement
 
-- Implement a customizable User profile section where user can add personal information (profile picture / avatar, bio, interests, favourite recipes) and view his published and draft recipes (currently user can view only draft recipes in my drafts page).
-- Add a feature that allows users to click on the author's name and view all the recipes published by that author.
-- Enhance search functionality to search for recipes based on FuzzySearch.
-- Provide users with social media options to login.
-- Add a subscription feature so that user can get latest recipes through email.
+- Allow users to create and manage personal profiles where they can save their favorite juices, track their tasting history, and set preferences for juice recommendations.
+- Implement a feature that enables users to rate and review different juices. This can help other users discover popular options and make informed choices.
+- Introduce a feature that suggests juice pairings with meals, snacks, or other drinks, providing a curated experience for users.
+- Offer a curated selection of seasonal juices, highlighting the best options for each time of year. This feature can keep the content fresh and relevant for users.
+- Implement a subscription model where users can receive monthly deliveries of curated juices based on their taste preferences. This can be a great way to build recurring revenue.
 
 ## The Skeleton Plane
 
-### Wireframes
+The Skeleton Plane outlines the basic structure of the "Taste of Juice" project. This phase focuses on defining the core framework that will guide the development and ensure consistency across all stages. Below are the key elements that make up the Skeleton Plane:
 
-#### Desktop Wireframes
+### 1. **Information Architecture**
 
-Wireframes for Large Screen Sizes
+The project's information architecture is designed to organize content logically and intuitively. This structure ensures that users can easily find and interact with the information they need.
 
-Update: The Search Recipes Button is changed later in design, it is included along with the other navbar menus and is accessible to all users. It is just kept as a nav link instead of button for both desktop and mobile devices.
+- **Home page**: Provides an frendly image and welcome message with calling to sign_UP .
+- **Recipes Page**: List of individual juices, including title,author and option for delete and edit juice recipe information
+- **Add Juice Page**: List of forms to create Juice Recipe.
+- **About Page**: Messaje for user and calling to collaborate.
 
-#### Home Page (authorised / unauthorised users)
+- **Register Page**: Register form for create new user.
+- **Login Page**: Form for login with Remember me check box.
 
-![home-page-authorised-users-desktop-wireframe](documentation/docs_images/home-page-authorised-users-wireframe-desktop.png)
+### 2. **Content Structure**
 
-![home-page-unauthorised-users-desktop-wireframe](documentation/docs_images/home-page-unauthorised-users-wireframe-desktop.png)
+Content is broken down into key sections that support user goals and business objectives. Each section is designed to provide value, whether through informative text, appealing visuals, or interactive elements.
 
-#### Recipes Page
+- **Juice Descriptions**: Detailed information on each juice.
 
-The recipes page is accessible to all users.
+### 3. **Navigation Design**
 
-![recipe-page-wireframe-desktop](documentation/docs_images/recipe-page-wireframe-desktop.png)
+The navigation system is designed to be intuitive and accessible, ensuring users can easily move through the site.
 
-#### Recipe Details Page (authorised / unauthorised users)
+- **Primary Navigation**: Links to main sections such as Home, Recipes, Add Juice, About,Register, and login depend if user is login or not.
+- **Footer**: Contains additional navigation links, social media icons, and legal information.
 
-![recipe-details-page-authorised-wireframe-desktop](documentation/docs_images/recipe-details-authorised-wireframe-desktop.png)
+### 4. **Wireframes**
 
-![recipe-details-page-unauthorised-wireframe-desktop](documentation/docs_images/recipe-details-unauthorised-wireframe-desktop.png)
+Wireframes serve as blueprints for the site, mapping out the layout and functionality of each page before design elements are applied.
 
-#### My Drafts Page (for authorised users only)
+- **Homepage Wireframe**: Outlines the main sections, including the header, featured juices, and footer.
+- **Product Page Wireframe**: Details the layout for individual product pages, focusing on content hierarchy and user interaction.
 
-![my-drafts-page-wireframe-desktop](documentation/docs_images/draft-recipes-page-wireframe-desktop.png)
+### 5. **Development Framework**
 
-#### Search Recipes Page
+The project's development framework sets the foundation for coding and building the site.
 
-Search Recipes page is accessible to all users.
-
-![search-recipes-page-wireframe-desktop](documentation/docs_images/search-recipe-wireframe-desktop.png)
-
-#### Add Recipe Page (for authorised users only)
-
-![add-recipe-page-wireframe-desktop](documentation/docs_images/add-recipe-wireframe-desktop.png)
-
-#### Edit Recipe Page (for authorised users only)
-
-![update-recipe-page-wireframe-desktop](documentation/docs_images/update-recipe-wireframe-desktop.png)
-
-#### Delete Recipe Page (for authorised users only)
-
-![delete-recipe-page-wireframe-desktop](documentation/docs_images/delete-recipe-confirm-wireframe-desktop.png)
-
-#### Sign Up and Sign In Page (for unauthorised users only)
-
-![sign-up-page-wireframe-desktop](documentation/docs_images/sign-up-wireframe-desktop.png)
-
-![sign-in-page-wireframe-desktop](documentation/docs_images/sign-in-wireframe-desktop.png)
-
-#### Log Out Page (for authorised users only)
-
-![log-out-page-wireframe-desktop](documentation/docs_images/log-out-wireframe-desktop.png)
-
-#### Mobile Wireframes
-
-Wireframes for Small Screen Sizes
-
-#### Home Page (authorised / unauthorised users)
-
-![home-page-authorised-users-mobile-wireframe](documentation/docs_images/home-page-authorised-wireframe-mobile.png)
-
-![home-page-unauthorised-users-mobile-wireframe](documentation/docs_images/home-page-unauthorised-wireframe-mobile.png)
-
-#### Recipes Page
-
-The recipes page is accessible to all users.
-
-![recipe-page-wireframe-mobile](documentation/docs_images/recipe-page-wireframe-mobile.png)
-
-#### Recipe Details Page (authorised / unauthorised users)
-
-![recipe-details-page-authorised-wireframe-mobile](documentation/docs_images/recipe-detail-authorised-page-wireframe-mobile.png)
-
-![recipe-details-page-unauthorised-wireframe-mobile](documentation/docs_images/recipe-detail-unauthorised-page-wireframe-mobile.png)
-
-#### My Drafts Page (for authorised users only)
-
-![my-drafts-page-wireframe-mobile](documentation/docs_images/draft-recipe-page-wireframe-mobile.png)
-
-#### Search Recipes Page
-
-Search Recipes page is accessible to all users.
-
-![search-recipes-page-wireframe-mobile](documentation/docs_images/search-page-wireframe-mobile.png)
-
-#### Add Recipe Page (for authorised users only)
-
-![add-recipe-page-wireframe-mobile](documentation/docs_images/add-recipe-page-wireframe-mobile.png)
-
-#### Sign Up and Sign In Page (for unauthorised users only)
-
-![sign-up-page-wireframe-mobile](documentation/docs_images/sign-up-page-wireframe-mobile.png)
-
-![sign-in-page-wireframe-mobile](documentation/docs_images/sign-in-page-wireframe-mobile.png)
-
-#### Log Out Page (for authorised users only)
-
-![log-out-page-wireframe-mobile](documentation/docs_images/logout-page-wireframe-mobile.png)
+- **Frontend**: Utilizes HTML, CSS, and JavaScript to create responsive, interactive user interfaces.
+- **Backend**: Powered by [Backend Technology], handling data management, user authentication, and other server-side processes.
+- **Database**: Structured to efficiently store product information, user data, and transaction records.
 
 ### Database Design
 
-![Entity-Relationship-Diagram](documentation/docs_images/entity-relationship-diagram.png)
+![Entity-Relationship-Diagram](erd_diagram.png)
 
-- The database ER diagram was designed using [SmartDraw](https://www.smartdraw.com/entity-relationship-diagram/). The main Recipe model contains all the fields needed for the recipe to be complete. Additional fields (like category, nutritional value, meals type., etc) can be added to further enhance the website, but the values are not vital for the site to work and can be added later.
-- The diagram shows relationaships between the Recipe model, Comments Model and django's allauth User model as follows:
+- The database ER diagram was designed using [Graphviz](https://graphviz.org/). The main Recipe model contains all the fields needed for the recipe to be complete. Additional fields (like category...) can be added to further enhance the website.
+- The diagram shows relationships between the Recipe model, Comments model and others models in project:
 
-  1.  User to Recipe: One-to-Many (1:M)
-      - Each user can create multiple recipes.
-      - Each recipe is created by one user.
-  2.  Recipe to Comment: One-to-Many (1:M)
-      - Each recipe can have multiple comments.
-      - Each comment is associated with one recipe.
-  3.  User to Comment: One-to-Many (1:M)
-      - Each user can make multiple comments.
-      - Each comment is made by one user.
+  1. **User to Recipe:** One-to-Many (1:M)
+     - Each user can create multiple recipes.
+     - Each recipe is created by one user.
+  2. **Recipe to Comment:** One-to-Many (1:M)
+     - Each recipe can have multiple comments.
+     - Each comment is associated with one recipe.
+  3. **User to Comment:** One-to-Many (1:M)
+     - Each user can make multiple comments.
+     - Each comment is made by one user.
 
-- In summary, User can create multiple recipes, and each recipe is associated with one user. Recipe can have multiple comments, and each comment is associated with one recipe. User can make multiple comments, and each comment is made by one user.
-- These relationships was implemented using ForeignKey fields in the models. The Recipe model have a ForeignKey field referencing the User model to represent the creator of the recipe, and the Comment model have ForeignKey fields referencing both the Recipe model and the User model to represent the recipe being commented on and the user making the comment, respectively.
-
-## The Surface Plane
-
-### Design
-
-The website uses clean, simple design with earthy colours and images that showcases the primary goal of the website. The aim here was to keep the site clutter-free so that user can have a smooth straight-forward navigation experience throughout without any chaos and confusion.
+- In summary, a User can create multiple recipes, and each recipe is associated with one user. A Recipe can have multiple comments, and each comment is associated with one recipe. A User can make multiple comments, and each comment is made by one user.
+- These relationships were implemented using `ForeignKey` fields in the models. The Recipe model has a `ForeignKey` field referencing the User model to represent the creator of the recipe, and the Comment model has `ForeignKey` fields referencing both the Recipe model and the User model to represent the recipe being commented on and the user making the comment, respectively.
 
 #### Typography
 
-- [Oswald](https://fonts.google.com/specimen/Oswald?query=oswald) was chosen for logo and headings as it can be combined easily with other fonts. It is attractive and amenable for the heading content on site. Because it is slightly elongated, it brings contrast to a typography combination. With website consideration it was best suited as it gives both modern and a serious touch to the content throughout on pages.
-
-- [Lato](https://fonts.google.com/specimen/Lato?query=Lato) was chosen for body text as it is light and easy to read.
+- [Merienda One](https://fonts.googleapis.com/css?family=Merienda+One|Open+Sans&display=swap)
 
 #### Images
 
-- The images in this project are sourced from [Pexels](https://www.pexels.com/), [Unsplash](https://unsplash.com/) and [Pixabay](https://pixabay.com/). They were specifically selected to correlate with the main purpose of the website and to give user a imagery representation for the recipe content to increase impact of the design.
-
-## Technologies
+- The images in this project are sourced from [Pixabay](https://pixabay.com/). They were specifically selected to correlate with the main purpose of the website and to give user a imagery representation for the recipe content to increase impact of the design.
 
 ### Tools and Technologies
 
-- [GitHub](https://github.com/) to host the source code.
-- Git to provide the version control to commit and push code to the repository.
-- HTML - used to create main static content of the website
-- Bootstrap - front end framework used
-- CSS- used for website styling
-- JavaScript- used to create dynamic content and make page interactive
-- Python - used as the main language to code the logic of the page
-- Django - framework used
-- Heroku - to deploy the app
-- ElephantSQL - A free cloud based PostgreSQL database system used for the application database.
-- [Google Fonts](https://fonts.google.com/) for typography.
-- [FontAwesome](https://fontawesome.com/v5/search) v5.15.4 for website icons.
-- [Favicon.io](https://favicon.io/) to create the website favicon.
-- Google Chrome's Lighthouse to test accessibility for desktop and mobile devices.
-- [W3C HTML Markup Validator](https://validator.w3.org/) to validate the HTML Code.
-- [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) to validate the CSS Code.
-- [jshint validator](https://jshint.com/) - used to check java script code for errors.
-- [SmartDraw](https://www.smartdraw.com/) used to generate the ER Diagram
-- [Am I Responsive](http://amiresponsive.blogspot.com/) to create the Mockup image in this README.
-- Code Institute's Gitpod Template to generate the workspace for the project.
-- BrowserStack for cross-browser testing.
+For the development of this project, a variety of tools and technologies were used to ensure efficiency and reliability. Below is a list of the key components:
 
-### Imports
+- **Django**: A high-level Python web framework that allows for rapid development of secure and maintainable websites. In this project, Django serves as the backbone, handling everything from database interactions to user authentication.
 
-#### Python Packages
+  - Version: 4.2.9
 
-- Summernote - used to provide an editor for user and admin for adding recipes instructions and ingredients.
-- TemplateView, CreateView, ListView, DeleteView, UpdateView - used to allow CRUD functionality
-- LoginRequiredMixin, UserPassesTestMixin - used to test and secure views from unauthorised access.
-- messages - used to add action messages to user on submission
-- HttpResponseRedirect, reverse : used to direct user to specific URL
-- get_object_or_404: used to get specific object from database or raise 404 exception if not found
+- **Django Summernote**: A simple WYSIWYG editor that provides rich text editing capabilities in Django admin. It was used to enhance the admin interface, making content management more user-friendly.
 
-#### External Packages
+  - Version: 0.8.20.0
 
-- asgiref - A standard Python library to allow for asynchronous web apps and servers to communicate with each other.
-- cloudinary==1.36.0 - media management cloudinary
-- dj3-cloudinary-storage==0.0.6 - cloudinary storage
-- dj-database-url==0.5.0 - Django utility allows to utilize DATABASE_URL environment variable to configure
-  Django application
-- Django==4.2.9 - Framework used to build the project
-- django-allauth==0.57.0 - authentication in django allows users to sign-in / signup / logout
-- requests-oauthlib==1.3.1 - installed with the allauth
-- psycopg2==2.9.9 - additional dependency needed to support PostgreSQL when deployed on heroku
-- django-crispy-forms==2.1 - used to display forms to user
-- django-summernote==0.8.20.0 - used to provide editor in forms
+- **PostgreSQL**: A powerful, open-source object-relational database system. It is used as the primary database for storing all data related to recipes, users, and comments.
 
-Installed as dependencies with other packages:
+  - Python adapter: `psycopg2-binary` version 2.9.9
 
-- gunicorn==20.1.0
-- oauthlib==3.2.2
-- PyJWT==2.8.0
-- python3-openid==3.2.0
-- sqlparse==0.4.4
-- urllib3==1.26.18
+- **Cloudinary**: A cloud service that offers a solution to a web application's image management needs. Cloudinary was used to handle image uploads and storage in this project.
+
+  - Version: 1.36.0
+
+- **Gunicorn**: A Python WSGI HTTP Server for UNIX that served as the production server for deploying the Django application.
+
+  - Version: 20.1.0
+
+- **Whitenoise**: A tool for serving static files, which simplifies the process of serving static assets directly from your application without needing a separate server.
+
+  - Version: 5.3.0
+
+- **Pre-commit Hooks**: Tools like `black`, `flake8`, and `isort` were integrated using pre-commit hooks to ensure code consistency and quality before changes were committed to the repository.
+
+  - `black` version: 24.4.2
+  - `flake8` version: 7.1.0
+  - `isort` version: 5.13.2
+
+- **Graphviz**: Used for generating entity-relationship diagrams (ERD) that visually represent the database structure, making it easier to understand the relationships between different models.
+
+  - Python library: `pydotplus` version 2.0.2
+
+- **Environment Management**: Python environment management was handled using `virtualenv` and `django-environ` to keep development environments isolated and manage environment variables securely.
+
+  - `virtualenv` version: 20.26.2
+  - `django-environ` version: 0.11.2
+
+- **Frontend**: The frontend was built using HTML, CSS, and JavaScript, with Bootstrap providing responsive design and layout enhancements.
+
+- **AJAX**: Asynchronous JavaScript and XML (AJAX) was used to enhance the user experience, allowing for dynamic content updates without reloading the entire page.
+
+These tools and technologies together provide a robust foundation for the project, ensuring scalability, maintainability, and a smooth user experience.
 
 ## Testing
 
@@ -618,51 +500,25 @@ Installed as dependencies with other packages:
 - The site is designed to be flexible, fluid and responsive on all screen sizes. Website has been checked for responsiveness through Chrome Development tools. In order to do this, the following steps have been taken:
 
   1. Open the browser.
-  2. Navigate to the Taste juice website <https://Taste-juice-4b4d80fd4040.herokuapp.com/>
+  2. Navigate to the Taste juice website <https://taste-of-juice-pp4-4cc0435c4efc.herokuapp.com/>
   3. Right click anywhere on the page and got to "Inspect" to open Development Tools.
   4. Click on drop down menu: "Dimensions: Responsive" and choose "Responsive".
-  5. Drag the side of the screen and change screen size, making sure the website looks good from 320px and up. Here, ensure there is consistency in design of the website on every screen size from small(mobile devices) to larger(desktop devices) and no scorll bar is showing for layout of site.
+  5. Drag the side of the screen and change screen size, making sure the website looks good from 300px and up. Here, ensure there is consistency in design of the website on every screen size from small(mobile devices) to larger(desktop devices) and no scorll bar is showing for layout of site.
 
-- Expected Result: Each page is responsive and user friendly when viewing the website on small and large screens.The pages have no design or accessibility issue in any of the screen sizes from 320px and up.
+- Expected Result: Each page is responsive and user friendly when viewing the website on small and large screens.The pages have no design or accessibility issue in any of the screen sizes from 300px and up.
 - Actual Result: Website is responsive with no scroll bar showing, the content is accessible to user to read and the images are not appearing stretched. Website is user friendly on small to large screen sizes.
 
 - The following devices are used to check responsiveness:
+
   - Iphone 12 Pro
   - Samsung Galaxy S20 Ultra
   - iPad Mini
-  - Surface Pro 7
-- The website was also tested further by sharing the live link with friends and family. The site was tested on following devices:
-
-  - Samsung S20 FE 5G
-  - Iphone 12
-  - iPad Air
-  - Samsung S24 Ultra
-  - Microsoft Surface
-  - Asus X5 50
-  - Lenovo Pad Pro 12.7
+  - Iphone XR
+  - Ipod mini
 
 - The following browsers have been used to check responsiveness. Testing for different browsers was carried on using [BrowserStack](https://www.browserstack.com/) and manually on some of the browsers.
   - Chrome
-  - Safari
   - Microsoft Edge
-  - Firefox
-  - Internet Explorer
-
-### Accessibility
-
-- Each page is checked with the help of WAVE Accessibility tool (<https://wave.webaim.org/>)
-- Each page passes accessibility test with no error for:
-
-  - contrast
-  - aria- labels for users who use screen-readers.
-  - alternative text as a function for screen readers or in events if the images don't load.
-  - structural elements: for users of assistive technology as well as visual and semantic meaning.
-  - language of the document for screen readers.
-  - an alert coming up 'Reduntant link-Adjacent links go to the same URL', however as it doesn't come up as an error, I have left it in' This is due to page logo and Home page having the same destination link.
-  - an alert is coming up 'same alternative text to nearby images' in recipes list view, as the alt is given default in the code, the user uploaded images appear with same alternative text, the solution for this can be adding an image alt field to model, so that the alternative text for image is added by user. I have left it in for later.
-  - for errors see the [Bugs](#bugs) section.
-
-- Accessibility test result for [website](documentation/docs_images/accessibility-test-home-page.png)
 
 ### Lighthouse
 
@@ -672,196 +528,7 @@ Installed as dependencies with other packages:
 
   <summary>Home Page - Desktop</summary>
     
-![home-page-lighthouse-desktop](documentation/docs_images/home-page-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary>Home Page - Mobile</summary>
-    
-![home-page-lighthouse-mobile](documentation/docs_images/home-page-lighthouse-mobile.png)
-
-  </details>
-
-### Recipes Page (Desktop / Mobile)
-
-<details>
-
-  <summary>Recipes Page - Desktop</summary>
-    
-![recipes-page-lighthouse-desktop](documentation/docs_images/recipes-page-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary>Recipes Page - Mobile</summary>
-    
-![recipes-page-lighthouse-mobile](documentation/docs_images/recipes-page-lighthouse-mobile.png)
-
-  </details>
-
-### Recipes Details Page (Desktop / Mobile)
-
-<details>
-
-  <summary>Recipe Details Page - Desktop</summary>
-    
-![recipe-details-page-lighthouse-desktop](documentation/docs_images/recipe-details-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary>Recipe Details Page - Mobile</summary>
-    
-![recipe-details-page-lighthouse-mobile](documentation/docs_images/recipe-details-lighthouse-mobile.png)
-
-  </details>
-
-### Search Recipes Page (Desktop / Mobile)
-
-<details>
-
-  <summary>Search Recipes Page - Desktop</summary>
-    
-![search-recipes-page-lighthouse-desktop](documentation/docs_images/search-recipes-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary>Search Recipes Page - Mobile</summary>
-    
-![search-recipes-page-lighthouse-mobile](documentation/docs_images/search-recipes-lighthouse-mobile.png)
-
-  </details>
-
-### Sign Up Page (Desktop / Mobile)
-
-<details>
-
-  <summary> Sign Up Page - Desktop</summary>
-    
-![sign-up-page-lighthouse-desktop](documentation/docs_images/sign-up-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary> Sign Up Page - Mobile</summary>
-    
-![sign-up-page-lighthouse-mobile](documentation/docs_images/sign-up-page-lighthouse-mobile.png)
-
-  </details>
-
-### Sign In Page (Desktop / Mobile)
-
-<details>
-
-  <summary> Sign In Page - Desktop</summary>
-    
-![sign-in-page-lighthouse-desktop](documentation/docs_images/sign-in-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary> Sign In Page - Mobile</summary>
-    
-![sign-in-page-lighthouse-mobile](documentation/docs_images/sign-in-page-lighthouse-mobile.png)
-
-  </details>
-
-### Log Out Page (Desktop / Mobile)
-
-<details>
-
-  <summary> Log Out Page - Desktop</summary>
-    
-![log-out-page-lighthouse-desktop](documentation/docs_images/sign-out-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary> Log Out Page - Mobile</summary>
-    
-![Log-out-page-lighthouse-mobile](documentation/docs_images/sign-out-lighthouse-mobile.png)
-
-  </details>
-
-### Add Recipe Page (Desktop / Mobile)
-
-<details>
-
-  <summary> Add Recipe Page - Desktop</summary>
-    
-![add-recipe-page-lighthouse-desktop](documentation/docs_images/add-recipe-page-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary> Add Recipe Page - Mobile</summary>
-    
-![add-recipe-page-lighthouse-mobile](documentation/docs_images/add-recipe-page-lighthouse-mobile.png)
-
-  </details>
-
-### Edit Recipe Page
-
-<details>
-
-  <summary> Edit Recipe Page</summary>
-    
-![edit-recipe-page-lighthouse-desktop](documentation/docs_images/edit-recipe-page-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary>Why is Accessibility not 100?</summary>
-The element is provided by Summernote, and it is not something I can change.
-
-![edit-recipe-accessibility-lighthouse-desktop](documentation/docs_images/edit-form-accessibility-lighthouse-desktop.png)
-
-  </details>
-
-### Delete Recipe Page (Desktop / Mobile)
-
-<details>
-
-  <summary> Delete Recipe Page - Desktop</summary>
-    
-![delete-recipe-page-lighthouse-desktop](documentation/docs_images/delete-page-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary> Delete Recipe Page - Mobile</summary>
-    
-![delete-recipe-page-lighthouse-mobile](documentation/docs_images/delete-recipes-lighthouse-mobile.png)
-
-  </details>
-
-### My Drafts Page (Desktop / Mobile)
-
-<details>
-
-  <summary> My Drafts Page - Desktop</summary>
-    
-![my-drafts-page-lighthouse-desktop](documentation/docs_images/my-drafts-page-lighthouse-desktop.png)
-
-  </details>
-
-<details>
-
-  <summary> My Drafts Page - Mobile</summary>
-    
-![my-drafts-page-lighthouse-mobile](documentation/docs_images/my-drafts-page-lighthouse-mobile.png)
+![home-page-lighthouse-desktop](static\documentations\test_lighthouse.PNG)
 
   </details>
 
@@ -978,7 +645,7 @@ Couple of warnings when running settings.py file. Too long lines of code. Modify
 | leave comment form                                                              | user enters a comment and clicks submit                                                                                                                                                      | users comment now displays in comments section adjacent to the comment form. Comments are shown in reverse chronological order with the oldest comments apperaing first                                                                                                                                                                                       | as expected |
 | My Drafts tab                                                                   | logged in user clicks on My Drafts tab from nav bar                                                                                                                                          | user directed to my_drafts.html, a list of only users own recipes - 'status - draft' available to view. User can see 6 recipes list per page and pagination navigation available below recipe posts if more than 6 recipes are available. If user didn't create any draft recipe yet a message will be displayed conveying user has no draft recipes yet.     | as expected |
 | Add Recipe tab                                                                  | logged in user clicks on Add Recipe tab from nav bar                                                                                                                                         | user directed to add_recipe.html page where they can see submission form for recipes                                                                                                                                                                                                                                                                          | as expected |
-| Add Recipe form                                                                 | user enters all fields marked as required with an '\*', the optional image field can either stay empty or be filled in- user clicks 'submit'                                                 | user directed back to recipes.html page, a success message displays on the top of the page, user now can see the added recipe post in list view on recipes page. If user submitted the recipe as draft- the recipe displays only on My Drafts page with status of 'Draft', if recipe was marked as published- it displays as a list view on recipes.html page | as expected |
+| Add Recipe form                                                                 | user enters all fields marked as required with an '/\*', the optional image field can either stay empty or be filled in- user clicks 'submit'                                                | user directed back to recipes.html page, a success message displays on the top of the page, user now can see the added recipe post in list view on recipes page. If user submitted the recipe as draft- the recipe displays only on My Drafts page with status of 'Draft', if recipe was marked as published- it displays as a list view on recipes.html page | as expected |
 | Delete recipe (recipe_detail page )                                             | user can only see ' delete' button on own published recipes. User clicks on 'delete'. User directed to recipe confirm delete page. 1. user clicks'Yes, Delete Recipe' 2.user clicks 'Cancel' | 1. user is taken back to recipes.html page, success message displayed at the top of the page, recipe deleted 2. user directed back to recipe_details page for the same recipe and recipe remains published.                                                                                                                                                   | as expected |
 | Edit recipe (recipe_detail page or my_drafts page)                              | user can only see 'Edit' button on own recipes. User clicks on 'Edit'. User directed to a edit form on update_recipe.html page . User can change any field and click submit.                 | user directed back to recipes page, success message displays if recipe is updated succesfully. User can still see the recipe in list view if published or on the my_drafts page if updated as draft(The update / edit form submission here and in the my_drafts page is same, it will be directed to edit form in both cases on clicking edit/ update button) | as expected |
 | Search Recipes tab                                                              | user clicks on Search Recipes tab from nav bar regardless of auth status                                                                                                                     | user directed to recipe_search.html page where they can see form to search recipes                                                                                                                                                                                                                                                                            | as expected |
@@ -1014,7 +681,7 @@ Testing is performed on all forms in the website and for user authentication to 
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------- |
 | Sign Up         | user doesn't fill in all required fields (username and password twice), user enters password twice but doesn't match, username enters too common password or less than 8 characters | user received a prompt with directions, submission unsuccessful user can enter details again            | as expected |
 | Sign-in         | user doesn't fill in all required fields (username and password). user enters incorrect username or password                                                                        | user receives prompt why sign-in is unsuccessful and can enter details again                            | as expected |
-| Add Recipe form | user doesn't fill in all required fields(marked with \*)                                                                                                                            | user receives a prompt to fill in the required field. form doesn't submit. user can enter details again | as expected |
+| Add Recipe form | user doesn't fill in all required fields(marked with /\*)                                                                                                                           | user receives a prompt to fill in the required field. form doesn't submit. user can enter details again | as expected |
 | Edit Recipe     | 1.user tries to access URL to edit recipe but not logged in 2. user tries to access the url from different username                                                                 | 1.user directed to login page 2. user receives error 403                                                | as expected |
 | Delete Recipe   | 1.user tries to access URL to delete recipe but not logged in 2. user tries to access the url from different username                                                               | 1.user directed to login page 2. user receives error 403                                                | as expected |
 | Comment form    | user tries to submit empty comment form                                                                                                                                             | user receives prompt Please fill in this field, form is not submitted                                   | as expected |

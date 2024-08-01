@@ -177,7 +177,7 @@ def recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-created_on")
-    comment_count = recipe.comments.filter(approved=True).count()
+    comment_count = recipe.comments.filter(approved=False).count()
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -185,7 +185,7 @@ def recipe_detail(request, slug):
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.recipe = recipe
-            comment.approved = True
+            comment.approved = False
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS, "Comment submitted and awaiting approval"
