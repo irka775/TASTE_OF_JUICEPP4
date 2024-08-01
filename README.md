@@ -545,146 +545,48 @@ In order to check HTML code in dynamic website:
 - code will open in new tab - copy the code
 - paste the code in the validator as 'direct input'
 
-#### Home Page
+#### Test First HTML shows eror
 
-![home-page-html-validation](documentation/docs_images/home-page-html-validation.png)
+![home-page-html-validation](static\documentations\test_HTML.PNG)
 
-#### Recipes Page
+#### Test afer fixed the bugs
 
-![recipes-page-html-validation](documentation/docs_images/recipes-page-html-validation.png)
+![recipes-page-html-validation](static\documentations\test_bug_fixed_html.PNG)
 
-#### Recipe Details Page
 
-![recipes-details-page-html-validation](documentation/docs_images/recipe-detail-page-html-validation.png)
-
-#### Search Recipes Page
-
-![search-recipes-page-html-validation](documentation/docs_images/search-recipe-page-html-validation.png)
-
-#### My Drafts Page
-
-![my-drafts-page-html-validation](documentation/docs_images/my-drafts-page-html-validation.png)
-
-#### Sign In Page
-
-![sign-in-page-html-validation](documentation/docs_images/sign-in-page-html-validation.png)
-
-#### Logout Page
-
-![logout-page-html-validation](documentation/docs_images/logout-page-html-validation.png)
-
-#### Error Pages (403, 500, 404)
-
-![error-page-html-validation](documentation/docs_images/error-pages-html-validation.png)
-
-#### Delete Recipe Page
-
-![delete-recipe-page-html-validation](documentation/docs_images/delete-recipe-page-html-validation.png)
-
-#### Add Recipe Page | Update Recipe Page
-
-All errors listed by W3Validator are related to Summernote, and not any code written by me. Errors are the same for both "Add Recipe" page and "Update Recipe" page. Research conducted within the Code Institute community indicates that this is a common occurrence, and therefore it should be noted. However, no action needs to be taken in response.
-
-<details>
-
-  <summary>Click here to see the errors.</summary>
-    
-![add-recipe-html-validation-error](documentation/docs_images/add-recipe-page-error-html-validation.png)
-
-  </details>
-
-#### Sign Up Page
-
-The Sign Up page HTML code is part of the Django authentication form, and I could find no way to change it.
-The html errors are coming from Django forms interpretation of allauths helper text, and not any code written by me. So, no action is taken in response.
-
- <details>
-
-  <summary>Click here to see the errors.</summary>
-    
-![signup-html-validation-error](documentation/docs_images/sign-up-form-error-html-validation.png)
-
-  </details>
 
 ### CSS Validation
 
 No errors were found when passing through the official Jigsaw W3 Validator
 
-![css-validation-check](documentation/docs_images/css-page-validation.png)
+![css-validation-check](static\documentations\test_css.PNG)
 
 ### JavaScript Validation
 
 No errors were found when passing through the [jshint validator](https://jshint.com/)
 
-![javascript-validation-check](documentation/docs_images/javascript-code-jshint-validation.png)
+![javascript-validation-check](static\documentations\test_js.PNG)
 
 ### Python Validation
 
-No errors were found when passing each file through [CI Python Linter](https://pep8ci.herokuapp.com/)
+Some errors were found when passing  file through [CI Python Linter](https://pep8ci.herokuapp.com/)
 
-![python-validation-check](documentation/docs_images/python-ci-linter-validation.png)
 
-Couple of warnings when running settings.py file. Too long lines of code. Modifying the file for resolving the warnings rendered errors during deployment. I have left the mentioned lines in settings.py file unchanged for warnings. All other python files have passed the validation with no errors.
+![python-validation-check-errors](static\documentations\test_python_errors.PNG)
 
-![settings-python-validate-warnings](documentation/docs_images/settings-python-validation-warnings.png)
+After fixing errors were found when passing  file through [CI Python Linter](https://pep8ci.herokuapp.com/)
+
+![python-validation-check](static\documentations\test_python_no_errors.PNG)
+
 
 ## Manual Testing
 
 ### Functional Testing
+![CSS-check](static\documentations\test_css.PNG)
+![DEBUG_VAR-check](static\documentations\test_debug_var.PNG)
+![HTML-check](static\documentations\test_debug_html.PNG)
+![MODAL-check](static\documentations\test_comment_delete_message.PNG)
 
-| Function                                                                        | Action                                                                                                                                                                                       | Expected                                                                                                                                                                                                                                                                                                                                                      | Actual      |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| sign-up                                                                         | user clicks- 'sign-up' or 'sign up now', user enters username, password and repeats password,(email optional) user clicks- 'sign-up>>'                                                       | user directed to home page, user receives a message of Successfully Signed up as 'USERNAME' at the top of the page                                                                                                                                                                                                                                            | as expected |
-| sign-in                                                                         | user clicks- 'sign-in' from nav bar or from sign-up page if entered it but already holds login details, user enters correct username and password, user clicks- 'sign-in'                    | user directed to home page, user receives a message of Successfully Signed in as 'Username' at the top of the page                                                                                                                                                                                                                                            | as expected |
-| log-out                                                                         | user clicks ' log-out' from nav bar, sign-out page displays to confirm sign-out, user confirms by clicking ' sign-out'                                                                       | user directed to home page, user receives a success message of 'You have signed out' at the top of the page                                                                                                                                                                                                                                                   | as expected |
-| recipes tab                                                                     | user clicks on 'recipes' tab from nav bar                                                                                                                                                    | user directed to recipes.html page, a list of 'published' recipes available to view regardless of user auth state. User can see 6 recipe post list per page and pagination navigation available below recipe posts lists if more than 1 pages available                                                                                                       | as expected |
-| pagination navigation (from recipes.html, my_drafts.html or recipe_search.html) | user on page 1: can see and clicks on: next. If user is not on page 1: user can see and click on : previous or next page if more than 2 pages available                                      | user gets directed to relevant and correct page depending on which option (next / prev) was clicked                                                                                                                                                                                                                                                           | as expected |
-| view recipes (from list view on recipes.html or recipe_search.html)             | user hovers over ' view recipe' button, button changes color to dark blue when hovered over, user clicks on the button                                                                       | recipe_detail.html page rendered for user, user can see correct recipe in detail                                                                                                                                                                                                                                                                              | as expected |
-| Like function (from recipe_detail page)                                         | 1. logged-in user clicks on hollow heart icon 2. logged-in user clicks on the solid red heart icon 3. unauthorised user clicks on heart icon                                                 | 1. icon changes to solid red color and number of likes increases by one. 2.icon changes to hollow and number of likes decreases by One. 3. the hollow heart icon has no effect                                                                                                                                                                                | as expected |
-| login to leave a comment : sign-in (from recipe_detail page)                    | user clicks on 'sign-in', user enters correct username and password, then clicks ' sign in'                                                                                                  | user redirected back to the same recipe detail page, user can see success message at the top of the screen. upon scrolling down to comments section- user can now see submission form to leave a comment instead of sign-in option                                                                                                                            | as expected |
-| leave comment form                                                              | user enters a comment and clicks submit                                                                                                                                                      | users comment now displays in comments section adjacent to the comment form. Comments are shown in reverse chronological order with the oldest comments apperaing first                                                                                                                                                                                       | as expected |
-| My Drafts tab                                                                   | logged in user clicks on My Drafts tab from nav bar                                                                                                                                          | user directed to my_drafts.html, a list of only users own recipes - 'status - draft' available to view. User can see 6 recipes list per page and pagination navigation available below recipe posts if more than 6 recipes are available. If user didn't create any draft recipe yet a message will be displayed conveying user has no draft recipes yet.     | as expected |
-| Add Recipe tab                                                                  | logged in user clicks on Add Recipe tab from nav bar                                                                                                                                         | user directed to add_recipe.html page where they can see submission form for recipes                                                                                                                                                                                                                                                                          | as expected |
-| Add Recipe form                                                                 | user enters all fields marked as required with an '/\*', the optional image field can either stay empty or be filled in- user clicks 'submit'                                                | user directed back to recipes.html page, a success message displays on the top of the page, user now can see the added recipe post in list view on recipes page. If user submitted the recipe as draft- the recipe displays only on My Drafts page with status of 'Draft', if recipe was marked as published- it displays as a list view on recipes.html page | as expected |
-| Delete recipe (recipe_detail page )                                             | user can only see ' delete' button on own published recipes. User clicks on 'delete'. User directed to recipe confirm delete page. 1. user clicks'Yes, Delete Recipe' 2.user clicks 'Cancel' | 1. user is taken back to recipes.html page, success message displayed at the top of the page, recipe deleted 2. user directed back to recipe_details page for the same recipe and recipe remains published.                                                                                                                                                   | as expected |
-| Edit recipe (recipe_detail page or my_drafts page)                              | user can only see 'Edit' button on own recipes. User clicks on 'Edit'. User directed to a edit form on update_recipe.html page . User can change any field and click submit.                 | user directed back to recipes page, success message displays if recipe is updated succesfully. User can still see the recipe in list view if published or on the my_drafts page if updated as draft(The update / edit form submission here and in the my_drafts page is same, it will be directed to edit form in both cases on clicking edit/ update button) | as expected |
-| Search Recipes tab                                                              | user clicks on Search Recipes tab from nav bar regardless of auth status                                                                                                                     | user directed to recipe_search.html page where they can see form to search recipes                                                                                                                                                                                                                                                                            | as expected |
-| Add Your Recipe link(Search Recipes Page)                                       | user clicks on add your recipe link regardless of auth status                                                                                                                                | 1. logged-in user directed to add_recipe.html page where they can see form to add recipe. 2. unauthorised users are directed to sign-in page and can sign up if not.                                                                                                                                                                                          | as expected |
-
-### Links and Buttons
-
-| Button / Anchor Link / Location                                                                | Destination Page                                        | Page Opens In New Tab |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------- | --------------------- |
-| Tastejuice logo - nav bar                                                                      | index.html                                              | no - as expected      |
-| Home tab - nav bar                                                                             | index.html                                              | no - as expected      |
-| Recipes tab - nav bar                                                                          | recipes.html                                            | no - as expected      |
-| Search Recipes tab - nav bar                                                                   | recipe_search.html                                      | no - as expected      |
-| Add Recipe tab - nav bar (for logged-in users only)                                            | add_recipe.html                                         | no - as expected      |
-| My Drafts tab - nav bar (for logged-in users only)                                             | my_drafts.html                                          | no - as expected      |
-| Logout - nav bar(for logged-in users only)                                                     | logout.html                                             | no-as expected        |
-| SignUp Now- from index.html(unauthorised users only)                                           | signup.html                                             | no - as expected      |
-| Sign Up - nav bar (unauthorised users only)                                                    | signup.html                                             | no - as expected      |
-| Sign In - nav bar (unauthorised users only)                                                    | login.html                                              | no - as expected      |
-| Sign in - comments section, recipe_detail.html(unauthorised users only)                        | login.html                                              | no - as expected      |
-| Edit - recipe_detail.html(on users own recipes only)                                           | update_recipe.html                                      | no - as expected      |
-| Delete - recipe_detail.html(on users own recipes only)                                         | recipe_confirm_delete.html                              | no - as expected      |
-| All recipes - from recipe_search.html (for all users)                                          | recipes.html                                            | no - as expected      |
-| Add Your Recipe - from recipe_search.html (1. for unauthorised users. 2. for authorised users) | 1.login.html. 2.add_recipe.html                         | no - as expected      |
-| "GitHub" Icon - footer                                                                         | <https://github.com/gayatrig19>                         | yes - as expected     |
-| "LinkedIn" Icon - footer                                                                       | <https://www.linkedin.com/in/gayatri-ghogare-a8099692/> | yes - as expected     |
-
-### Negative Testing
-
-Testing is performed on all forms in the website and for user authentication to Create, Update, Delete recipes.
-
-| Function        | Action                                                                                                                                                                              | Expected                                                                                                | Actual      |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------- |
-| Sign Up         | user doesn't fill in all required fields (username and password twice), user enters password twice but doesn't match, username enters too common password or less than 8 characters | user received a prompt with directions, submission unsuccessful user can enter details again            | as expected |
-| Sign-in         | user doesn't fill in all required fields (username and password). user enters incorrect username or password                                                                        | user receives prompt why sign-in is unsuccessful and can enter details again                            | as expected |
-| Add Recipe form | user doesn't fill in all required fields(marked with /\*)                                                                                                                           | user receives a prompt to fill in the required field. form doesn't submit. user can enter details again | as expected |
-| Edit Recipe     | 1.user tries to access URL to edit recipe but not logged in 2. user tries to access the url from different username                                                                 | 1.user directed to login page 2. user receives error 403                                                | as expected |
-| Delete Recipe   | 1.user tries to access URL to delete recipe but not logged in 2. user tries to access the url from different username                                                               | 1.user directed to login page 2. user receives error 403                                                | as expected |
-| Comment form    | user tries to submit empty comment form                                                                                                                                             | user receives prompt Please fill in this field, form is not submitted                                   | as expected |
 
 ## Automated Testing
 
@@ -694,25 +596,37 @@ No unit testing performed at this stage.
 
 ## Bugs
 
-- Midway during development I modified my recipe model for slug field which resulted in IntegrityError for previously uploaded recipes. On discussion with tutor, the previous migrations were reversed and new migartions were made to resolve the error.
-- Installing both whitenoise and cloudinary resulted in conflict for serving static files and as a result the deployment failed.
-  - Fix: The order of apps in my Installed Apps in settings.py for cloudinary was not correct. The apps are reorder correctly, Whitenoise and related staticfiles folder is removed. Static files are served on Cloudinary.
+- **Installing both Whitenoise and Cloudinary resulted in conflict for serving static files and as a result, the deployment failed.**
+  - **Fix:** The order of apps in `INSTALLED_APPS` in `settings.py` for Cloudinary was incorrect. The apps were reordered correctly, Whitenoise and related static files configuration were removed, and static files are now served through Cloudinary.
+
+- **Duplicate column errors during migration:**
+  - **Issue:** Running migrations after making changes to the database schema resulted in `DuplicateColumn` errors.
+  - **Fix:** Deleted existing migrations and the database, then recreated them from scratch to ensure consistency.
+
+- **Foreign key constraint violation when loading fixtures:**
+  - **Issue:** Loading fixtures with recipes failed due to missing associated users in the `auth_user` table.
+  - **Fix:** Created or loaded the required user records before loading the fixtures.
+
+- **About Page content and design need improvement:**
+  - **Issue:** The content and design of the About Page do not effectively communicate the purpose and story of the project.
+  - **Fix:** Revise the content and improve the design to create a more engaging About Page.
+
+- **Color palette could be more cohesive:**
+  - **Issue:** The current color palette lacks visual appeal and consistency.
+  - **Fix:** Consider redesigning the color scheme to improve the overall aesthetics of the website.
+
 
 ### Unfixed Bugs
 
-- The edit recipe form is fully functional and the recipe is updated successfully, but the image link for "currently" field is not displayed as it should be. The field for previous uploaded / default image placeholder in the update form remains empty. This has resulted in empty link error during wave accessibility test. The quick fix was to use {{ form.as_p }} and render django form as paragraph rather than crispy ones. This fix works but caused the layout issue and the website was not responsive. Due to time constraint, the bug is left unattained. The update functionality though works as expected.
-
-![edit-page-placeholder-bug](documentation/docs_images/recipe-edit%20placeholder.png)
-
-- While testing the website on BrowserStack, an accessibility issue not really a bug is noticed for the like icon. On every other device the like icon displays as expected. But in case of iphone and ipad, the icon appears as expected when viewed by unauthorised users. The like icon however appears transparent to the logged-in users. The functionality though is not affected and like button works properly.
-
-![like-icon-ipad-bug](documentation/docs_images/bug-ipad-air.png)
+- **Better search:** The search functionality needs improvement to provide more accurate and relevant results.
+- **About Page should be better:** The content and design of the About Page need enhancements to better convey the purpose and story of the project.
+- **Need to make better color palette:** The current color palette could be improved to create a more visually appealing and cohesive design.
 
 ## Deployment
 
 ### Version Control
 
-- The website was developed through Gitpod.
+- The website was developed through local vscode.
 
 - Code has been pushed to repository on Github with following git commands:
 
@@ -745,7 +659,7 @@ No unit testing performed at this stage.
   - Scroll down and select manual deployment method
   - You can also use Auto deployment method to allow the project to update every time you push the code.
   - You can now click to view the app ready and running
-- For this project I used Manual deployment method to deploy the current state of the branch, every time I pushed the code from Gitpod.
+- For this project I used Manual deployment method to deploy the current state of the branch, every time I pushed the code from vscode.
 
 ### Cloning the Repository
 
