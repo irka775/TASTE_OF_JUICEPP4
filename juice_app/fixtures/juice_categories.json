@@ -1,0 +1,137 @@
+[
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Fruit Juices",
+            "slug": "fruit-juices",
+            "description": "Juices made from a variety of fresh fruits such as apples, oranges, mangoes, and more, ideal for a refreshing and healthy drink."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Vegetable Juices",
+            "slug": "vegetable-juices",
+            "description": "Juices made from fresh vegetables like carrots, beets, cucumbers, and spinach, known for their high nutrient content and health benefits."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Smoothies",
+            "slug": "smoothies",
+            "description": "Blended drinks made from fruits, vegetables, yogurt, or milk, often including added ingredients like nuts or protein powders for a thicker, nutrient-dense beverage."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Green Juices",
+            "slug": "green-juices",
+            "description": "Juices that primarily contain green vegetables such as kale, spinach, and cucumber, often combined with fruits for a balanced, detoxifying drink."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Detox Juices",
+            "slug": "detox-juices",
+            "description": "Juices designed to cleanse and detoxify the body, typically containing ingredients known for their cleansing properties such as lemon, ginger, and celery."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Citrus Juices",
+            "slug": "citrus-juices",
+            "description": "Juices made from citrus fruits like oranges, lemons, limes, and grapefruits, known for their high vitamin C content and refreshing taste."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Tropical Juices",
+            "slug": "tropical-juices",
+            "description": "Juices made from tropical fruits such as pineapple, mango, papaya, and coconut, offering an exotic and sweet flavor."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Berry Juices",
+            "slug": "berry-juices",
+            "description": "Juices made from berries like strawberries, blueberries, raspberries, and blackberries, rich in antioxidants and vitamins."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Exotic Juices",
+            "slug": "exotic-juices",
+            "description": "Juices made from less common, exotic fruits like dragon fruit, guava, passion fruit, and lychee, providing unique flavors and nutritional benefits."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Herbal Juices",
+            "slug": "herbal-juices",
+            "description": "Juices that incorporate herbs such as mint, basil, and parsley, often combined with fruits or vegetables for added health benefits and flavors."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Nut Milks",
+            "slug": "nut-milks",
+            "description": "Plant-based milks made from nuts such as almonds, cashews, and hazelnuts, offering a creamy texture and rich flavor, often used as a base for other drinks."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Protein Shakes",
+            "slug": "protein-shakes",
+            "description": "Shakes that include protein powders or high-protein ingredients like Greek yogurt, designed to provide a protein boost for workouts and muscle recovery."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Energy Juices",
+            "slug": "energy-juices",
+            "description": "Juices formulated to provide a natural energy boost, often containing ingredients like green tea, ginseng, and chia seeds."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Immunity Boosters",
+            "slug": "immunity-boosters",
+            "description": "Juices made with ingredients known to support the immune system, such as turmeric, ginger, and citrus fruits, to help ward off illness."
+        }
+    },
+    {
+        "model": "juice_app.category",
+        "pk": null,
+        "fields": {
+            "name": "Kids Juices",
+            "slug": "kids-juices",
+            "description": "Juices designed specifically for children, focusing on a balance of flavor and nutrition, often containing a mix of fruits and vegetables that appeal to younger taste buds."
+        }
+    }
+]
