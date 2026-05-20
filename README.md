@@ -708,3 +708,6 @@ For more details on how to clone the repository in order to create a copy for ow
 - I would like to thank my husband, Mihail Barbascumpa, for his constant support and for reviewing my work actively, getting involved in the discussions for website ideas and design content.
 - I am also deeply thankful to cohort facilitator Laura ,tutors, student care... for their help
 - I am grateful to the Code Institute's Tutor support for solving all my doubts.
+
+---
+Educational project — see [FAMILY_USE.md](FAMILY_USE.md).
